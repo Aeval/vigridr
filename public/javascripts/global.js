@@ -2,13 +2,14 @@ var userData = [];
 
 //On page ready
 $(document).ready(function(){
+    
     populateGames();
 })
 
 function populateGames(){
     var gameContent = '';
 
-    $.getJSON('/users/games', function(data){
+    $.getJSON('/games/games', function(data){
         //For each game create a card
         $.each(data, function(){
             gameContent += '<div class="card text-white bg-dark border-secondary">';
