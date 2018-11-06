@@ -2,13 +2,58 @@ extends layout
 
 block content
   div.container
-    row
-      div.col-8.offset-2.text-center.text-white
-        img(src="/images/logonowords.png", alt="Logo", height="200px", width="200px")
-        h1= title
-        h6#headmsg Welcome to the Thorlabs Vigridr Charity Gaming League! Please log in to vote for the games you would be interested in playing or watching this season. A per-team sign up donatation will be collected and victors on Thor's Battlefield will have a chance to have the winnings donated to their choice of charity! Good luck!
-        div#btns.my-5
-          button.btn.btn-outline-success.mx-2 Log In
-          button.btn.btn-outline-danger.mx-2 Register
-        div#gameDisp.card-columns
+    div.row
+      div.col.s10.offset-s1.white-text.center-align
+        img(src="/images/fenrirLogo.png", alt="Logo", height="200px", width="200px")
+        h3= title
+        p#headmsg Welcome to the Thorlabs Vigridr Charity Gaming League! Please log in to vote for the games you would be interested in playing or watching this season. A per-team sign up donatation will be collected and victors on Thor's Battlefield will have a chance to have the winnings donated to their choice of charity! Good luck!
+        div#btns
+          div.row
+            div.col.s3.offset-s3
+              button(id="log" class="btn waves-effect waves-light red hoverable modal-trigger" data-target="modalLog")  Log In
+                i.material-icons.left perm_identity
+            div.col.s3
+              button(id="reg" class="btn waves-effect waves-light blue darken-4 hoverable modal-trigger" data-target="modalReg") Register
+                i.material-icons.left how_to_reg
+    div.divider
+    br
+    div.row
+      div#gameDisp.col.s12.cards-container
+    //Modal for Reg
+    div#modalReg.modal.modal-fixed-footer.modalBG
+      .modal-content
+        h4.center-align Register for the League!
+        .row
+          .col.s12
+            .row
+              .input-field.col.s6
+                i.material-icons.prefix perm_identity
+                input(id="regFirstName" class="validate" type="text")
+                label(for="regFirstName") First Name
+              .input-field.col.s6
+                input(id="regLastName" class="validate" type="text")
+                label(for="regLastName") Last Name
+            .row
+              .input-field.col.s12
+                i.material-icons.prefix account_circle
+                input(id="regUsername" class="validate" type="text")
+                label(for="regUsername") Username
+            .row
+              .input-field.col.s12
+                i.material-icons.prefix mail_outline
+                input(id="regEmail" class="validate" type="email")
+                label(for="regEmail") Email
+            .row
+              .input-field.col.s12
+                i.material-icons.prefix business
+                input(id="regCompany" class="validate" type="text")
+                label(for="regCompany") Company
+            .row
+              .input-field.col.s12
+                i.material-icons.prefix vpn_key
+                input(id="regPassword" class="validate" type="password")
+                label(for="regPassword") Password
+      .modal-footer
+        a(href="#!" class="modal-close waves-effect waves-green btn-flat") Register
+
 

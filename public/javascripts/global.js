@@ -2,8 +2,10 @@ var userData = [];
 
 //On page ready
 $(document).ready(function(){
-    
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
     populateGames();
+    
 })
 
 function populateGames(){
@@ -12,18 +14,34 @@ function populateGames(){
     $.getJSON('/games/games', function(data){
         //For each game create a card
         $.each(data, function(){
-            gameContent += '<div class="card text-white bg-dark border-secondary">';
-            gameContent += '<img class="card-img-top" src="'+ this.pic +'" height="150px" width="400px" alt="'+ this.game +'">';
-            gameContent += '<div class="card-body">';
-            gameContent += '<h5 class="card-title text-center">'+ this.game +'</h5>';
-            gameContent += '<p class="card-text">'+ this.desc +'</p>';
+            gameContent += '<div class="card hoverable small white-text blue-grey darken-3">';
+            gameContent += '<div class="card-image">';
+            gameContent += '<img src="'+ this.pic +'" height="150px" width="400px" alt="'+ this.game +'"></img>';
             gameContent += '</div>';
-            gameContent += '<div class="card-footer text-center">';
-            gameContent += '<button type="button" class="btn btn-primary">Vote!</a>';
+            gameContent += '<div class="card-fab">';
+            gameContent += '<button id="'+ this.gameid +'" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="material-icons">how_to_vote</i></button><button id="'+ this.gameid +'remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="material-icons">check</i></button>';
+            gameContent += '</div>';
+            gameContent += '<div class="card-content">';
+            gameContent += '<p>'+ this.desc +'</p>';
             gameContent += '</div>';
             gameContent += '</div>';
         });
 
         $('#gameDisp').html(gameContent);
+
+        //Pulse on hover
+        $('.card').hover(function() {
+            $(this).children('.card-fab').children('.btn-floating').addClass('pulse');
+        }, function() {
+            $(this).children('.card-fab').children('.btn-floating').removeClass('pulse');
+        });
+        
+        //Vote to check and back, also include db logic here:
+        $('.btn-floating').on('click', function(){
+            console.log($(this).attr('id'));
+            $(this).addClass('scale-out');
+            $(this).siblings('.btn-floating').removeClass('scale-out');
+
+        });
     })
 }
