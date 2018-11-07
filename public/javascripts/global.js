@@ -2,8 +2,7 @@ var userData = [];
 
 //On page ready
 $(document).ready(function(){
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems);
+
     populateGames();
     
 })
@@ -45,3 +44,11 @@ function populateGames(){
         });
     })
 }
+
+$('#log').on('click', function(){
+    
+});
+
+$('#reg').on('click', function(){
+    getRegValues();
+});

@@ -23,7 +23,13 @@ $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width 
   .card {
     display: inline-block;
     overflow: visible;
+    width: 85%;
   }
+}
+
+.card-fab {
+  position: relative;
+  z-index: 1;
 }
 
 @media #{$small-and-down} {

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET userlist. */
+/* GET users */
 router.get('/users', function(req, res) {
   var db = req.db;
   var collection = db.get('users');
@@ -10,12 +10,26 @@ router.get('/users', function(req, res) {
   });
 });
 
-/* router.get('/games', function(req, res) {
+// GET specific user by username
+router.get('/getuser/:username', function(req, res) {
   var db = req.db;
-  var collection = db.get('games');
-  collection.find({},{},function(e,docs){
+  var collection = db.get('users');
+  var userToFind = req.params.username;
+  collection.find({'username': userToFind}, function(e,docs){
     res.json(docs);
   });
-}); */
+});
+
+/* POST to adduser */
+router.post('/adduser', function(req, res) {
+  var db = req.db;
+  var collection = db.get('users');
+  collection.insert(req.body, function(err, result){
+    res.send(
+      (err === null) ? { msg: '' } : { msg: err }
+    );
+  });
+  collection.update
+});
 
 module.exports = router;
