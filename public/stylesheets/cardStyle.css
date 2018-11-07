@@ -4,7 +4,7 @@
 .cards-container .card {
   display: inline-block;
   overflow: visible;
-  width: 75%;
+  width: 90%;
 }
 
 .card-fab {

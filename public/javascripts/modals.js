@@ -1,8 +1,9 @@
 async function getRegValues() {
     const {value: regValues} = await swal({
-        title: 'Log In to Get Started!',
+        title: 'Register for the League!',
         background: 'url(/images/vigridrBanner.png)',
         html:
+            '<br>'+
             '<div class="row">'+
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">account_circle</i>'+
@@ -83,7 +84,6 @@ async function getRegValues() {
                 return false;
             }else{
                 addUser(regValues);
-                swal('Nice!', 'We got you in the system! Signing in!', 'success');
             }  
         })
     }
@@ -91,10 +91,24 @@ async function getRegValues() {
 
 async function getLogValues() {
     const {value: logValues} = await swal({
-        title: 'Register for the League!',
+        title: 'Welcome Back!',
+        background: 'url(/images/vigridrBanner.png)',
         html:
-            '<input id="logUserName" class="swal2-input">' +
-            '<input id="logPassword" class="swal2-input">',
+            '<br>'+
+            '<div class="row">'+
+            '<div class="input-field col s12">'+
+            '<i class="material-icons prefix">account_circle</i>'+
+            '<input id="logUserName" type="text" class="validate white-text">'+
+            '<label for="logUserName">Username</label>'+
+            '</div>'+
+            '</div>'+
+            '<div class="row">'+
+            '<div class="input-field col s12">'+
+            '<i class="material-icons prefix">vpn_key</i>'+
+            '<input id="logPassword" type="password" class="validate white-text">'+
+            '<label for="logPassword">Password</label>'+
+            '</div>'+
+            '</div>',
         focusConfirm: false,
         preConfirm: () => {
             return [
@@ -103,4 +117,38 @@ async function getLogValues() {
             ]
         }
     })
+
+    if (logValues) {
+        var user = {
+            username: logValues[0],
+            password: logValues[1]
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: '/users/login/',
+            data: user,
+            dataType: 'JSON'
+        }).done(function(response) {
+            if (response.message !== 'Auth successful!'){
+                toast({
+                    type: 'error',
+                    title: response.message
+                });
+                return false;
+            }else{
+                toast({
+                    type: 'success',
+                    title: `Welcome, ${response.user}`
+                })
+            }  
+        })
+    }
 }
+
+const toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+  });

@@ -19,12 +19,11 @@ function addUser(regValues) {
     }).done(function( response ) {
       // Check for successful (blank) response
       if (response.msg === '') {
-        console.log('Account created!');
-        console.log('Log user in now');
+        swal('Nice!','Welcome to the Vigridr League!', 'success')
       }
       else {
         // If something goes wrong, alert the error message that our service returned
-        alert('Error: ' + response.msg);
+        swal('Error!',response.msg,'error');
       }
     });
 };

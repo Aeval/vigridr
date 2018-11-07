@@ -46,7 +46,7 @@ function populateGames(){
 }
 
 $('#log').on('click', function(){
-    
+    getLogValues();
 });
 
 $('#reg').on('click', function(){
