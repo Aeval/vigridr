@@ -7,47 +7,50 @@ async function getRegValues() {
             '<div class="row">'+
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">account_circle</i>'+
-            '<input id="regUserName" type="text" class="validate white-text">'+
+            '<input id="regUserName" type="text" class="validate white-text" required>'+
             '<label for="regUserName">Username</label>'+
             '</div>'+
             '</div>'+
             '<div class="row">'+
             '<div class="input-field col s6">'+
             '<i class="material-icons prefix">perm_identity</i>'+
-            '<input id="regFirstName" type="text" class="validate white-text">'+
+            '<input id="regFirstName" type="text" class="validate white-text" required>'+
             '<label for="regFirstName">First Name</label>'+
             '</div>'+
             '<div class="input-field col s6">'+
-            '<input id="regLastName" type="text" class="validate white-text">'+
+            '<input id="regLastName" type="text" class="validate white-text" required>'+
             '<label for="regLastName">Last Name</label>'+
             '</div>'+
             '</div>'+
             '<div class="row">'+
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">email</i>'+
-            '<input id="regEmail" type="text" class="validate white-text">'+
+            '<input id="regEmail" type="email" class="validate white-text" required>'+
             '<label for="regEmail">Email</label>'+
+            '<span class="helper-text" data-error="Please enter a valid email!" data-success="Perfect!">ex: someone@somplace.com</span>'+
             '</div>'+
             '</div>'+
             '<div class="row">'+
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">business</i>'+
-            '<input id="regCompany" type="text" class="validate white-text">'+
+            '<input id="regCompany" type="text" class="validate white-text" required>'+
             '<label for="regCompany">Company</label>'+
             '</div>'+
             '</div>'+
             '<div class="row">'+
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">vpn_key</i>'+
-            '<input id="regPassword" type="password" class="validate white-text">'+
+            '<input id="regPassword" type="password" pattern="/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/" class="validate white-text" required>'+
             '<label for="regPassword">Password</label>'+
+            '<span class="helper-text" data-error="Must be 6-16 char and contain: Upper, Lower, Number, and Special (eg. Password123!)" data-success=""></span>'+
             '</div>'+
             '</div>'+
             '<div class="row">'+
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">vpn_key</i>'+
-            '<input id="regConfirmPassword" type="password" class="validate white-text">'+
+            '<input id="regConfirmPassword" type="password" pattern="/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/" class="validate white-text" required>'+
             '<label for="regConfirmPassword">Confirm Password</label>'+
+            '<span class="helper-text" data-error="Please ensure your passwords match and follow the required format!" data-success=""></span>'+
             '</div>'+
             '</div>',
         focusConfirm: false,
