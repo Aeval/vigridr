@@ -1,12 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const gamesController = require('../controllers/games');
 
-router.get('/games', function(req, res) {
-  var db = req.db;
-  var collection = db.get('games');
-  collection.find({},{},function(e,docs){
-    res.json(docs);
-  });
-});
+router.get('/games', gamesController.getGames);
 
 module.exports = router;

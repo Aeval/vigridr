@@ -84,6 +84,32 @@ async function getRegValues() {
                 return false;
             }else{
                 addUser(regValues);
+                var user = {
+                    username: userName,
+                    password: userPassword
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/users/login/',
+                    data: user,
+                    dataType: 'JSON'
+                }).done(function(response) {
+                    if (response.message !== 'Auth successful!'){
+                        toast({
+                            type: 'error',
+                            title: response.message
+                        });
+                        return false;
+                    }else{
+                        toast({
+                            type: 'success',
+                            title: `WELCOME, ${response.user}!`
+                        })
+                        Cookies.set('user', {token:response.token,user:response.user }, {expires: 1});
+                        checkUser();
+                    }  
+                })
             }  
         })
     }
@@ -139,11 +165,29 @@ async function getLogValues() {
             }else{
                 toast({
                     type: 'success',
-                    title: `Welcome, ${response.user}`
+                    title: `WELCOME BACK, ${response.user}!`
                 })
+                Cookies.set('user', {token:response.token,user:response.user }, {expires: 1});
+                checkUser();
             }  
         })
     }
+}
+
+function logOutUser(){
+    swal({
+        title: 'Logout?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#9f9f9f',
+        confirmButtonText: 'Logout'
+      }).then((result) => {
+        if (result.value) {
+            Cookies.remove('user');
+            location.reload();
+        }
+      })
 }
 
 const toast = swal.mixin({

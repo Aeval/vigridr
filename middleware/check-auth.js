@@ -3,7 +3,8 @@ const keys = require('../keys.js');
 
 module.exports = (req, res, next) => {
     try{
-        const decoded = jwt.verify(req.body.token, keys);
+        const token = req.headers.authorization.split(' ')[1];
+        const decoded = jwt.verify(token, keys);
         req.userData = decoded;
         next();
     } catch (error) {

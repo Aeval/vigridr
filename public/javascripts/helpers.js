@@ -18,11 +18,7 @@ function addUser(regValues) {
       dataType: 'JSON'
     }).done(function( response ) {
       // Check for successful (blank) response
-      if (response.msg === '') {
-        swal('Nice!','Welcome to the Vigridr League!', 'success')
-      }
-      else {
-        // If something goes wrong, alert the error message that our service returned
+      if (response.msg !== '') {
         swal('Error!',response.msg,'error');
       }
     });
