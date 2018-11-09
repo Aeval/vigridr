@@ -24,7 +24,7 @@ function populateGames(){
             gameContent += '<img src="'+ this.pic +'" height="150px" width="400px" alt="'+ this.game +'"></img>';
             gameContent += '</div>';
             gameContent += '<div class="card-fab">';
-            gameContent += '<button id="'+ this.gameid +'" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="material-icons">how_to_vote</i></button><button id="'+ this.gameid +'remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="material-icons">check</i></button>';
+            gameContent += '<button id="'+ this.gameid +'_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="material-icons">how_to_vote</i></button><button id="'+ this.gameid +'_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="material-icons">check</i></button>';
             gameContent += '</div>';
             gameContent += '<div class="card-content">';
             gameContent += '<p>'+ this.desc +'</p>';
@@ -43,10 +43,78 @@ function populateGames(){
         
         //Vote to check and back, also include db logic here:
         $('.btn-floating').on('click', function(){
-            console.log($(this).attr('id'));
-            $(this).addClass('scale-out');
-            $(this).siblings('.btn-floating').removeClass('scale-out');
+            var game = $(this).attr('id')
+            var gameid = $(this).attr('id').split('_')[0]
+            var user = Cookies.getJSON('user');
+            let button = $(this)[0];
+            var vote;
+            var header = {
+                Authorization: user.token
+            };
+            
 
+            if(game.indexOf('add') >= 0){
+                console.log('+1');
+                vote = {
+                    gameid: gameid,
+                    vote: 1
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/games/submitVote/',
+                    headers: header,
+                    data: vote,
+                    dataType: 'JSON'
+                }).done(function(resp){
+                    if(resp.msg !== ''){
+                        toast({
+                            type: 'error',
+                            title: 'We couldn\'t process that vote.'
+                        });
+                    }else{
+                        $(button).addClass('scale-out');
+                        $(button).siblings('.btn-floating').removeClass('scale-out');
+                    }
+                }).fail(function(){
+                    toast({
+                        type: 'error',
+                        title: 'Voting Failed!'
+                    });
+                })
+            }
+
+            if(game.indexOf('remove') >= 0){
+                console.log('-1');
+
+                vote = {
+                    gameid: gameid,
+                    vote: -1
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/games/submitVote/',
+                    headers: header,
+                    data: vote,
+                    dataType: 'JSON'
+                }).done(function(resp){
+                    if(resp.msg !== ''){
+                        toast({
+                            type: 'error',
+                            title: 'We couldn\'t process that vote.'
+                        });
+                    }else{
+                        $(button).addClass('scale-out');
+                        $(button).siblings('.btn-floating').removeClass('scale-out');
+                    }
+                }).fail(function(){
+                    toast({
+                        type: 'error',
+                        title: 'We couldn\'t process that vote.'
+                    });
+                })
+            }
         });
     })
 }

@@ -1,6 +1,6 @@
-var md5 = require('md5');
-var jwt = require('jsonwebtoken');
-var keys = require('../keys.js');
+const md5 = require('md5');
+const jwt = require('jsonwebtoken');
+const keys = require('../keys.js');
 
 exports.login = function(req, res) {
     var db = req.db;
@@ -10,7 +10,7 @@ exports.login = function(req, res) {
       var userPass = '';
       if(user.length < 1) {
         return res.status(401).json({
-          message: 'Auth failed!'
+          message: 'User Not Found!'
         });
       }else{
         userPass = user[0].password;
@@ -25,7 +25,8 @@ exports.login = function(req, res) {
             email: user[0].email,
             first: user[0].firstname,
             last: user[0].lastname,
-            company: user[0].company
+            company: user[0].company,
+            admin: user[0].admin
           }, keys, {
             expiresIn: "1h" 
           })
@@ -33,7 +34,8 @@ exports.login = function(req, res) {
           return res.status(200).json({
             message: 'Auth successful!',
             token: token,
-            user: user[0].username
+            user: user[0].username,
+            admin: user[0].admin
           });
         }
       }
@@ -49,7 +51,8 @@ exports.login = function(req, res) {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       company: req.body.company,
-      password: md5(req.body.password)
+      password: md5(req.body.password),
+      admin: 0
     };
     collection.insert(user, function(err, result){
       res.send(

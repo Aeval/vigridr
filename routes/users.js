@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/users');
 
-//var checkAuth = require('../middleware/check-auth');
+//const checkAuth = require('../middleware/check-auth');
 
 /* GET users */
 router.get('/users', userController.getAllUsers);
