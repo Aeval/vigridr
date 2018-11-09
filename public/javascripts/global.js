@@ -15,16 +15,28 @@ $('#reg').on('click', function(){
 
 function populateGames(){
     var gameContent = '';
+    var user = Cookies.getJSON('user');
+    var gamevotes = user.votes;
 
     $.getJSON('/games/games', function(data){
         //For each game create a card
         $.each(data, function(){
+            var gameid = this.gameid;
+
             gameContent += '<div class="card hoverable small white-text blue-grey darken-3">';
             gameContent += '<div class="card-image">';
             gameContent += '<img src="'+ this.pic +'" height="150px" width="400px" alt="'+ this.game +'"></img>';
             gameContent += '</div>';
             gameContent += '<div class="card-fab">';
-            gameContent += '<button id="'+ this.gameid +'_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="material-icons">how_to_vote</i></button><button id="'+ this.gameid +'_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="material-icons">check</i></button>';
+            if(gamevotes){
+                if(gamevotes[gameid] > 0){
+                    gameContent += '<button id="'+ gameid +'_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition scale-out"><i class="material-icons">how_to_vote</i></button><button id="'+ gameid +'_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition"><i class="material-icons">check</i></button>';
+                }else{
+                    gameContent += '<button id="'+ gameid +'_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="material-icons">how_to_vote</i></button><button id="'+ gameid +'_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="material-icons">check</i></button>';
+                }
+            }else{
+                gameContent += '<button id="'+ gameid +'_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="material-icons">how_to_vote</i></button><button id="'+ gameid +'_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="material-icons">check</i></button>';
+            }
             gameContent += '</div>';
             gameContent += '<div class="card-content">';
             gameContent += '<p>'+ this.desc +'</p>';
@@ -54,8 +66,9 @@ function populateGames(){
             
 
             if(game.indexOf('add') >= 0){
-                console.log('+1');
+
                 vote = {
+                    user: user.user,
                     gameid: gameid,
                     vote: 1
                 };
@@ -85,9 +98,10 @@ function populateGames(){
             }
 
             if(game.indexOf('remove') >= 0){
-                console.log('-1');
+
 
                 vote = {
+                    user: user.user,
                     gameid: gameid,
                     vote: -1
                 };
@@ -146,6 +160,7 @@ function checkUser(){
         populateGames();
         $('#voteText').html('<h5 class="white-text center-align">Vote for the games you want to see in the League!</h5>');
         $('#btns').html(`<a id="logOut" class="waves-effect waves-light red btn"><i class="material-icons left">account_circle</i>${userCookie.user}</a>`)
+        
         $('#logOut').on('click', function(){
             logOutUser();
         })

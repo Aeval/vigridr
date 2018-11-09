@@ -172,7 +172,7 @@ async function getLogValues() {
                     type: 'success',
                     title: `WELCOME BACK, ${response.user}!`
                 })
-                Cookies.set('user', {token:response.token,user:response.user }, {expires: 1});
+                Cookies.set('user', {token:response.token,user:response.user,admin:response.admin,votes: response.votes}, {expires: 1});
                 checkUser();
 /*             }   */
         }).fail(function(){

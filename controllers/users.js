@@ -26,16 +26,18 @@ exports.login = function(req, res) {
             first: user[0].firstname,
             last: user[0].lastname,
             company: user[0].company,
-            admin: user[0].admin
+            admin: user[0].admin,
+            votes : user[0].gamevotes
           }, keys, {
             expiresIn: "1h" 
           })
-          //look at video "form data"
+
           return res.status(200).json({
             message: 'Auth successful!',
             token: token,
             user: user[0].username,
-            admin: user[0].admin
+            admin: user[0].admin,
+            votes : user[0].gamevotes
           });
         }
       }

@@ -12,10 +12,13 @@ exports.getGames = function(req, res) {
 
   exports.submitVote = function(req, res){
     var db = req.db;
-    var collection = db.get('votes');
-    var gameid =  req.body.gameid;
+    var collection = db.get('users');
+    var user = req.body.user
+    var key =  'gamevotes.' + req.body.gameid;
+    var obj = {};
     var vote = getInt(req.body.vote);
-    collection.update({'gameid': gameid}, {$inc: {'votes': vote}}, function(err, result){
+    obj[key] = vote;
+    collection.update({'username': user}, {$inc: obj}, function(err, result){
       res.send(
         (err === null) ? { msg: '' } : { msg: err }
       );
