@@ -5,6 +5,7 @@ async function getRegValues() {
         html:
             '<br>'+
             '<div class="row">'+
+            //Username
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">account_circle</i>'+
             '<input id="regUserName" type="text" class="validate white-text" required>'+
@@ -12,17 +13,35 @@ async function getRegValues() {
             '</div>'+
             '</div>'+
             '<div class="row">'+
+            //First name
             '<div class="input-field col s6">'+
             '<i class="material-icons prefix">perm_identity</i>'+
             '<input id="regFirstName" type="text" class="validate white-text" required>'+
             '<label for="regFirstName">First Name</label>'+
             '</div>'+
+            //Last name
             '<div class="input-field col s6">'+
+            '<i class="material-icons prefix">perm_identity</i>'+
             '<input id="regLastName" type="text" class="validate white-text" required>'+
             '<label for="regLastName">Last Name</label>'+
             '</div>'+
+            '<div class="row">'+
+            //Bnet Tag
+            '<div class="input-field col s6">'+
+            '<i class="prefix"><img src="/images/bnet.svg"></i>'+
+            '<input id="regBattlenet" type="text" class="validate white-text">'+
+            '<label for="regBattlenet">Battlenet Tag</label>'+
+            '<span class="helper-text">ex: Username#1234</span>'+
+            '</div>'+
+            //Steam Id
+            '<div class="input-field col s6">'+
+            '<i class="fab fa-steam prefix"></i>'+
+            '<input id="regSteamid" type="text" class="validate white-text">'+
+            '<label for="regSteamid">Steam Id</label>'+
+            '</div>'+
             '</div>'+
             '<div class="row">'+
+            //Email
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">email</i>'+
             '<input id="regEmail" type="email" class="validate white-text" required>'+
@@ -31,6 +50,7 @@ async function getRegValues() {
             '</div>'+
             '</div>'+
             '<div class="row">'+
+            //Company
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">business</i>'+
             '<input id="regCompany" type="text" class="validate white-text" required>'+
@@ -38,6 +58,7 @@ async function getRegValues() {
             '</div>'+
             '</div>'+
             '<div class="row">'+
+            //Password
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">vpn_key</i>'+
             '<input id="regPassword" type="password" minlength="8" maxlength="16" class="validate white-text" required>'+
@@ -46,6 +67,7 @@ async function getRegValues() {
             '</div>'+
             '</div>'+
             '<div class="row">'+
+            //Confirm Pass
             '<div class="input-field col s12">'+
             '<i class="material-icons prefix">vpn_key</i>'+
             '<input id="regConfirmPassword" type="password" minlength="8" maxlength="16" class="validate white-text" required>'+
@@ -59,6 +81,8 @@ async function getRegValues() {
                 document.getElementById('regUserName').value,
                 document.getElementById('regFirstName').value,
                 document.getElementById('regLastName').value,
+                document.getElementById('regBattlenet').value,
+                document.getElementById('regSteamid').value,
                 document.getElementById('regEmail').value,
                 document.getElementById('regCompany').value,
                 document.getElementById('regPassword').value,
@@ -69,10 +93,10 @@ async function getRegValues() {
 
     if (regValues) {
         var userName = regValues[0];
-        var userPassword = regValues[5];
-        var userConfirmPass = regValues[6];
+        var userPassword = regValues[7];
+        var userConfirmPass = regValues[8];
 
-        if(regValues[0] == ''|| regValues[1] == '' || regValues[2] == '' || regValues[3] == '' || regValues[4] == '' || regValues[5] == '' || regValues[6] == ''){
+        if(regValues[0] == ''|| regValues[1] == '' || regValues[2] == '' || regValues[5] == '' || regValues[6] == '' || regValues[7] == '' || regValues[8] == ''){
             swal('Not Quite!', 'Please make sure you fill out the whole form!', 'error');
             return false;
         }
@@ -196,6 +220,65 @@ function logOutUser(){
             location.reload();
         }
       })
+}
+
+async function getChart() {
+    $.ajax({
+        Type: 'GET',
+        url: '/games/getChart/',
+        dataType: 'JSON'
+    }).done(function(resp){
+        console.log(resp);
+
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [resp[0].name,resp[1].name,resp[2].name,resp[3].name,resp[4].name,resp[5].name,resp[6].name,resp[7].name,resp[8].name,resp[9].name,resp[10].name,resp[11].name],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [resp[0].votes,resp[1].votes,resp[2].votes,resp[3].votes,resp[4].votes,resp[5].votes,resp[6].votes,resp[7].votes,resp[8].votes,resp[9].votes,resp[10].votes,resp[11].votes],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    
+        swal({
+            title: 'Welcome Back!',
+            background: 'url(/images/vigridrBanner.png)',
+            html:
+            '<canvas id="myChart" width="400" height="400"></canvas>',
+            focusConfirm: false,
+            showCancelButton: false
+        });
+    })
+
+
 }
 
 const toast = swal.mixin({

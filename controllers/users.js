@@ -54,6 +54,8 @@ exports.login = function(req, res) {
       lastname: req.body.lastname,
       company: req.body.company,
       password: md5(req.body.password),
+      bnet: req.body.bnet,
+      steam: req.body.steam,
       admin: 0
     };
     collection.insert(user, function(err, result){

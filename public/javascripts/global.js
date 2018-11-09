@@ -13,6 +13,16 @@ $('#reg').on('click', function(){
     getRegValues();
 });
 
+$('#chart').on('click', function(){
+    getChart();
+});
+
+$('#chart').hover(function() {
+    $(this).addClass('pulse');
+}, function() {
+    $(this).removeClass('pulse');
+});
+
 function populateGames(){
     var gameContent = '';
     var user = Cookies.getJSON('user');

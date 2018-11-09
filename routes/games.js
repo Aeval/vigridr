@@ -7,4 +7,6 @@ router.get('/games', gamesController.getGames);
 
 router.post('/submitVote', checkAuth, gamesController.submitVote);
 
+router.get('/getChart', gamesController.getGameChart);
+
 module.exports = router;
