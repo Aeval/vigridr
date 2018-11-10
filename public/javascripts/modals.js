@@ -229,54 +229,66 @@ async function getChart() {
         dataType: 'JSON'
     }).done(function(resp){
         console.log(resp);
+    
+        swal({
+            title: 'Votes at a Glance:',
+            background: 'url(/images/vigridrBanner.png)',
+            html:
+            '<br>'+
+            '<canvas id="myChart" width="400" height="400"></canvas>',
+            showConfirmButton: false,
+            showCancelButton: false,
+            showCloseButton: true
+        });
 
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'pie',
             data: {
                 labels: [resp[0].name,resp[1].name,resp[2].name,resp[3].name,resp[4].name,resp[5].name,resp[6].name,resp[7].name,resp[8].name,resp[9].name,resp[10].name,resp[11].name],
                 datasets: [{
                     label: '# of Votes',
                     data: [resp[0].votes,resp[1].votes,resp[2].votes,resp[3].votes,resp[4].votes,resp[5].votes,resp[6].votes,resp[7].votes,resp[8].votes,resp[9].votes,resp[10].votes,resp[11].votes],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(153, 102, 255, 0.8)',
+                        'rgba(250,21,44, 0.8)',
+                        'rgba(212,74,249, 0.8)',
+                        'rgba(37,182,53, 0.8)',
+                        'rgba(100,2,37, 0.8)',
+                        'rgba(168,68,71, 0.8)',
+                        'rgba(128,26,119, 0.8)',
+                        'rgba(41,4,237, 0.8)'
                     ],
                     borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(153, 102, 255, 0.8)',
+                        'rgba(250,21,44, 0.8)',
+                        'rgba(212,74,249, 0.8)',
+                        'rgba(37,182,53, 0.8)',
+                        'rgba(100,2,37, 0.8)',
+                        'rgba(168,68,71, 0.8)',
+                        'rgba(128,26,119, 0.8)',
+                        'rgba(41,4,237, 0.8)'
                     ],
                     borderWidth: 1
                 }]
             },
             options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
+                legend:{
+                    display: false
                 }
             }
         });
-    
-        swal({
-            title: 'Welcome Back!',
-            background: 'url(/images/vigridrBanner.png)',
-            html:
-            '<canvas id="myChart" width="400" height="400"></canvas>',
-            focusConfirm: false,
-            showCancelButton: false
-        });
     })
+
+    
 
 
 }
