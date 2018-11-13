@@ -3,8 +3,7 @@ var userData = [];
 //On page ready
 $(document).ready(function(){
     checkUser();
-
-    $('.fixed-action-btn').floatingActionButton();
+    checkBrowser();
 })
 
 $('#log').on('click', function(){
