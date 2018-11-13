@@ -3,6 +3,8 @@ var userData = [];
 //On page ready
 $(document).ready(function(){
     checkUser();
+
+    $('.fixed-action-btn').floatingActionButton();
 })
 
 $('#log').on('click', function(){
@@ -18,6 +20,12 @@ $('#chart').on('click', function(){
 });
 
 $('#chart').hover(function() {
+    $(this).addClass('pulse');
+}, function() {
+    $(this).removeClass('pulse');
+});
+
+$('#discord').hover(function() {
     $(this).addClass('pulse');
 }, function() {
     $(this).removeClass('pulse');
