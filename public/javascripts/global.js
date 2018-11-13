@@ -1,5 +1,5 @@
 var userData = [];
-checkBrowser();
+
 //On page ready
 $(document).ready(function(){
     checkUser();
@@ -183,14 +183,5 @@ function checkUser(){
     }else{
         populateGamesList();
         $('#voteText').html('<h5 class="white-text center-align">Log in to vote on which games to play!</h5>');
-    }
-}
-
-function checkBrowser() {
-    // Internet Explorer 6-11
-    var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-    if (isIE){
-        $('#voteText').html('<h1>We do not support IE, please switch to a modern browser to continue!</h1>')
     }
 }
