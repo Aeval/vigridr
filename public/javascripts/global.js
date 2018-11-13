@@ -177,7 +177,7 @@ function checkUser(){
     if(userCookie){
         populateGames();
         $('#voteText').html('<h5 class="white-text center-align">Vote for the games you want to see in the League!</h5>');
-        $('#btns').html(`<a id="logOut" class="waves-effect waves-light red btn"><i class="material-icons left">account_circle</i>${userCookie.user}</a>`)
+        $('#btns').html(`<a id="logOut" class="waves-effect waves-light red btn"><i class="material-icons left">account_circle</i>${userCookie.user}</a>`);
         
         $('#logOut').on('click', function(){
             logOutUser();
@@ -188,3 +188,29 @@ function checkUser(){
     }
 }
 
+function checkBrowser() {
+    // Opera 8.0+
+    var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+    // Firefox 1.0+
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+
+    // Safari 3.0+ "[object HTMLElementConstructor]" 
+    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
+    // Internet Explorer 6-11
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+    // Edge 20+
+    var isEdge = !isIE && !!window.StyleMedia;
+
+    // Chrome 1+
+    var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+    // Blink engine detection
+    var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+    if (isIE){
+        $('#voteText').html('<h1>We do not support IE, please switch to a modern browser to continue!</h1>')
+    }
+}
