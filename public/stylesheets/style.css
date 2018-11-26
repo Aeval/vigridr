@@ -21,3 +21,7 @@ a {
   background-color: #7289DA !important;
   margin: auto;
 }
+
+#modal-login, #modal-reg, #getChart{
+	background-image: url('/images/vigridrBanner.png');
+}

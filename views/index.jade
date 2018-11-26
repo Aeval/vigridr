@@ -4,11 +4,19 @@ block content
   div.container
     div.row
       div.col.s1.left-align.white-text
-        a#chart.btn-floating.blue-grey.hoverable
-          i.material-icons insert_chart_outlined
-      div.col.s1.left-align.white-text
-        a(href="https://discord.gg/6WcW68U" class="btn-floating hoverable" id="discord" target="_blank")
-          i.fab.fa-discord
+        div.fixed-action-btn
+          a#info.btn-floating.blue-grey.hoverable.btn-large
+            i.fas.fa-info-circle
+          ul
+            li
+              a#chart.btn-floating.red.hoverable
+                i.fas.fa-chart-pie
+            li
+              a(href="https://discord.gg/6WcW68U" class="btn-floating hoverable" id="discord" target="_blank")
+                i.fab.fa-discord
+            li
+              a(href="https://paypal.me/pools/c/89KS2XQcnN" class="btn-floating hoverable" id="donate" target="_blank")
+                i.fas.fa-donate   
     div.row
       div.col.s10.offset-s1.white-text.center-align
         img(src="/images/fenrirLogo.png", alt="Logo", height="200px", width="200px")
@@ -20,8 +28,8 @@ block content
         div#btns
           div.row
             div.col.s3.offset-s3
-              button#log.btn.waves-effect.waves-light.red.hoverable  Log In
-                i.material-icons.left account_circle
+                button#log.btn.waves-effect.waves-light.red.hoverable Login
+                  i.material-icons.left account_circle
             div.col.s3
               button#reg.btn.waves-effect.waves-light.blue.darken-4.hoverable.modal-trigger Register
                 i.material-icons.left how_to_reg
@@ -30,3 +38,75 @@ block content
     div#voteText.row
     div.row
       div#gameDisp.col.s12.cards-container.center-align
+    //Start Modals
+    //Login Modal
+    div(id="modal-login")
+      form(name="logForm")
+        div.row
+          div.input-field.col.s12.grey-text
+            i.material-icons.prefix account_circle
+            input(id="logUserName" type="text" class="validate white-text" required)
+            label(for="logUserName") Username
+        div.row
+          div.input-field.col.s12.grey-text
+            i.material-icons.prefix vpn_key
+            input(id="logPassword" type="password" class="validate white-text" required)
+            label(for="logPassword") Password
+        div.row
+          div.input-field.col.s12.center-align
+            button(id="logSubmit" type="submit" class="btn waves-effect waves-light red hoverable") Log In!
+    //Reg Modal
+    div(id="modal-reg")
+      form(name="regForm")
+        div.row
+          div.input-field.col.s12.grey-text
+            i.material-icons.prefix account_circle
+            input(id="regUserName" type="text" class="validate white-text" required)
+            label(for="regUserName") Username
+        div.row
+          div.input-field.col.s6.grey-text
+            i.material-icons.prefix account_circle
+            input(id="regFirstName" type="text" class="validate white-text" required)
+            label(for="regFirstName") First Name
+          div.input-field.col.s6.grey-text
+            i.material-icons.prefix account_circle
+            input(id="regLastName" type="text" class="validate white-text" required)
+            label(for="regLastName") Last name
+        div.row
+          div.input-field.col.s6.grey-text
+            i.prefix
+              img(src="/images/bnet.svg")
+            input(id="regBattlenet" type="text" class="validate white-text")
+            label(for="regBattlenet") Battlenet Tag
+          div.input-field.col.s6.grey-text
+            i.fab.fa-steam.prefix
+            input(id="regSteamid" type="text" class="validate white-text")
+            label(for="regSteamid") SteamID
+        div.row
+          div.input-field.col.s12.grey-text
+            i.material-icons.prefix email
+            input(id="regEmail" type="email" class="validate white-text" required)
+            label(for="regEmail") Email
+        div.row
+          div.input-field.col.s12.grey-text
+            i.material-icons.prefix business
+            input(id="regCompany" type="text" class="validate white-text" required)
+            label(for="regCompany") Company
+        div.row
+          div.input-field.col.s12.grey-text
+            i.material-icons.prefix vpn_key
+            input(id="regPassword" minlength="8" maxlength="16" type="password" class="validate white-text" required)
+            label(for="regPassword") Password
+        div.row
+          div.input-field.col.s12.grey-text
+            i.material-icons.prefix vpn_key
+            input(id="regConfirmPassword" minlength="8" maxlength="16" type="password" class="validate white-text" required)
+            label(for="regConfirmPassword") Confirm Password
+        div.row
+          div.input-field.col.s12.center-align
+            button(id="regSubmit" type="submit" class="btn waves-effect waves-light red hoverable") Register!
+        div(id="getChart")
+          canvas(id="myChart" width="400" height="400")
+        div(id="loginSuccess")
+        div(id="errorAlert")
+        div(id="errorUserName")
