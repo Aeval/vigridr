@@ -54,7 +54,7 @@ To deploy to Heroku Live, merge changes into the HerokuDeployment branch.
 
 * **Zak "Aeval" Fisher** - *Initial work and organization. Tournament Admin.* - [GitHub Profile](https://github.com/Aeval)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Aeval/vigridr/graphs/contributors) who participated in this project.
 
 ## License
 
