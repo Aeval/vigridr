@@ -14,7 +14,7 @@ cd vigridr
 npm install
 ```
 5. Open a new branch to develop on
-6. Merge to HerokuDeployment to push live
+6. Merge to Master branch to push live
 
 
 ### Break down into end to end tests
@@ -35,7 +35,7 @@ Etc...
 
 ## Deployment
 
-To deploy to Heroku Live, merge changes into the HerokuDeployment branch.
+To deploy to Heroku Live, merge changes into the Master branch.
 
 ## Built With
 
