@@ -2,6 +2,9 @@ nav {
     background-image: url('/images/vigridrbanner.png');
     background-position-y: 12%;
     height: 7vh;
+    -webkit-box-shadow: 0 8px 15px black !important;
+    -moz-box-shadow: 0 8px 15px black !important;
+    box-shadow: 0 8px 15px black !important;
 }
 
 .brand-logo {
@@ -58,11 +61,21 @@ nav {
 
 #body {
     height: 95vh;
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(15, 15, 15);
 }
 
 .page-footer {
-    background-color: rgb(8, 8, 8);
+    background: rgba(18,18,18,1);
+    background: -moz-linear-gradient(top, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(18,18,18,1)), color-stop(100%, rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(top, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(top, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
+    background: -ms-linear-gradient(top, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#121212', endColorstr='#000000', GradientType=0 );
+    -webkit-box-shadow: 0 -8px 15px black !important;
+    -moz-box-shadow: 0 -8px 15px black !important;
+    box-shadow: 0 -8px 15px black !important;
 }
 
 .page-footer a:hover{
