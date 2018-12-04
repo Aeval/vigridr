@@ -1,0 +1,97 @@
+nav {
+    background-image: url('/images/vigridrbanner.png');
+    background-position-y: 12%;
+    height: 7vh;
+}
+
+.brand-logo {
+    margin-left: 10px;
+}
+
+#nav-mobile.center {
+    margin-left: 39%;
+}
+
+#nav-mobile.center li {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50px;
+}
+
+#nav-mobile.center li:hover {
+    line-height: 75px;
+}
+
+.hvr-overline-reveal {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+}
+
+.hvr-overline-reveal:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: rgb(196, 0, 0);
+    height: 10px;
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-overline-reveal:hover:before, .hvr-overline-reveal:focus:before, .hvr-overline-reveal:active:before {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+#body {
+    height: 95vh;
+    background-color: rgb(27, 27, 27);
+}
+
+.page-footer {
+    background-color: rgb(8, 8, 8);
+}
+
+.page-footer a:hover{
+    text-decoration-line: underline;
+    text-decoration-color: inherit;
+}
+
+#footer-discord i:hover {
+    color: #7289DA;
+}
+
+#footer-links {
+    padding-left: 20%;
+}
+
+.login {
+    margin-right: 20px;
+}
+
+.login:hover {
+    color: rgb(196, 0, 0);
+}
+
+#title-card {
+    margin-top: 10px;
+}
+
+#firstPanel {
+    background-image: url('/images/games/solid/artifact_card.jpg');
+    background-size: cover;
+    background-position-y: 35%;
+}

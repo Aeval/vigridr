@@ -1,0 +1,53 @@
+extends dashLayout
+
+block content
+  nav.z-depth-3
+    div.nav-wrapper
+      a(href="/dashboard" class='brand-logo') Vigridr Gaming League
+      a(href="#" data-target="mobile-menu" class="sidenav-trigger")
+        i.material-icons menu
+      ul#nav-mobile.center.hide-on-med-and-down
+        li.hvr-overline-reveal
+          a(href="/dashboard/games") Games
+        li.hvr-overline-reveal
+          a(href="/dashboard/teams") Teams
+        li.hvr-overline-reveal
+          a(href="/dashboard/players") Players
+        li.hvr-overline-reveal
+          a(href="/dashboard/watch") Watch
+      a(href="#" class="login right")
+        i.fas.fa-user-circle.fa-2x
+  div#body.container-fluid
+  footer.page-footer
+    div.container
+      div.row
+        div.col.s6
+          h5.white-text Vigridr Gaming League
+          p.grey-text.text-lighten-4 Welcome to the Vigridr Gaming League! Please have a look around. This site will be used for tracking just about everything that has to do with the league. For answers to questions, or to leave a comment or complaint, please contact:
+          h6.grey-text.text-lighten-4
+            a(href="mailto:admin@vigridrgaming.com?Subject=Emailing%20About%20The%20League" target="_top") admin@vigridrgaming.com
+        div#footer-links.col.s6
+          h5.white-text Looking For Something?
+          ul
+            li
+              a(href="#" class="grey-text text-lighten-3") Link 1
+            li
+              a(href="#" class="grey-text text-lighten-3") Link 2 
+            li
+              a(href="#" class="grey-text text-lighten-3") Link 3
+            li
+              a(href="#" class="grey-text text-lighten-3") Link 4
+    div.footer-copyright
+      div.container
+        © 2018 Vigridr Gaming League
+        a(id="footer-discord" href="#" class="grey-text text-lighten-4 right") 
+          i.fab.fa-discord  Vigridr Discord
+  ul#mobile-menu.sidenav
+    li
+      a(href="/dashboard/games") Games
+    li
+      a(href="/dashboard/teams") Teams
+    li
+      a(href="/dashboard/players") Players
+    li
+      a(href="/dashboard/watch") Watch

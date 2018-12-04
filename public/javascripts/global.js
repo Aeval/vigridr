@@ -124,3 +124,9 @@ $('#info').hover(function() {
 }, function() {
     $(this).removeClass('pulse');
 });
+
+$('#dash').hover(function() {
+    $(this).addClass('pulse');
+}, function() {
+    $(this).removeClass('pulse');
+});
