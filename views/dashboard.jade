@@ -4,7 +4,10 @@ block content
   div.navbar-fixed
     nav
       div.nav-wrapper
-        a(href="/dashboard" class='brand-logo') Vigridr Gaming League
+        a(href="/dashboard" class='brand-logo hide-on-med-and-down') Vigridr Gaming League
+        a(href="/dashboard" class='brand-logo hide-on-large-only')
+          span Vigridr 
+          span Gaming
         a(href="#" data-target="mobile-menu" class="sidenav-trigger")
           i.material-icons menu
         ul#nav-mobile.center.hide-on-med-and-down
@@ -20,53 +23,72 @@ block content
           i.fas.fa-user-circle.fa-2x
   div#body.container-fluid
     div.row
-      div#title-card.col.s8.offset-s2
-        div.card
+      div#title-card.col.s10.offset-s1
+        div.card.grey.darken-4.z-depth-3
           div.card-image
-            div.carousel.carousel-slider.center
+            div#dashCaro.carousel.carousel-slider.center
               div.carousel-fixed-item.center
-                a.btn.waves-effect.white.grey-text.darken-text-2.hoverable Button
-              div(id="firstPanel" class="carousel-item red white-text" href="#one!")
+              div(id="firstPanel" class="carousel-item white-text carousel-reveal valign-wrapper" href="#one!")
                 h2 First Panel
                 p.white-text This is your first panel
-              div(class="carousel-item amber white-text" href="#two!")
+              div(id="secondPanel" class="carousel-item white-text carousel-reveal" href="#two!")
                 h2 Second Panel
                 p.white-text This is your second panel
-              div(class="carousel-item green white-text" href="#three!")
+              div(id="thirdPanel" class="carousel-item white-text carousel-reveal" href="#three!")
                 h2 Third Panel
                 p.white-text This is your third panel
-          div.card-content
-            p Here's some shit to make sure it even works
-  footer.page-footer
-    div.container
-      div.row
-        div.col.s6
-          h5.white-text Vigridr Gaming League
-          p.grey-text.text-lighten-4 Welcome to the Vigridr Gaming League! Please have a look around. This site will be used for tracking just about everything that has to do with the league. For answers to questions, or to leave a comment or complaint, please contact:
-          h6.grey-text.text-lighten-4
-            a(href="mailto:admin@vigridrgaming.com?Subject=Emailing%20About%20The%20League" target="_top") admin@vigridrgaming.com
-        div#footer-links.col.s6
-          h5.white-text Looking For Something?
-          ul
-            li
-              a(href="#" class="grey-text text-lighten-3") Link 1
-            li
-              a(href="#" class="grey-text text-lighten-3") Link 2 
-            li
-              a(href="#" class="grey-text text-lighten-3") Link 3
-            li
-              a(href="#" class="grey-text text-lighten-3") Link 4
-    div.footer-copyright
+          div.card-content.white-text.center
+            h5 Welcome to Vigridr
+            p This is your league; your battlefield. Join in with your coworkers and neighbors for a chance to champion a local charity and compete in your favorite e-sports title. The winning team or player of each game's league will have the full prize pool donated to their charity, as well as bragging rights and recognition within the Vigridr community.
+    div.row
+      div.col.s10.m4.offset-m2
+        div.card
+          div.card-image
+            img(src="/images/carouselImages/donate.jpg", alt="donate")
+            span.card-title.black-text Find a Charity
+            a.btn-floating.halfway-fab.waves-effect.waves-light.red.darken-2
+              i.material-icons add
+          div.card-content.white-text.center
+            p Test words ojasfj dsofj dsfoj ofjaopsjf jpo sjasdoj asodj asdojasdpojasd
+      div.col.s10.m4
+        div.card
+          div.card-image
+            img(src="/images/carouselImages/donatedark.jpg", alt="donate")
+            span.card-title Find a Charity
+            a.btn-floating.halfway-fab.waves-effect.waves-light.red.darken-2
+              i.material-icons add
+          div.card-content.white-text.center
+            p Test words ojasfj dsofj dsfoj ofjaopsjf jpo sjasdoj asodj asdojasdpojasd
+    footer.page-footer
       div.container
-        © 2018 Vigridr Gaming League
-        a(id="footer-discord" href="#" class="grey-text text-lighten-4 right") 
-          i.fab.fa-discord  Vigridr Discord
-  ul#mobile-menu.sidenav
-    li
-      a(href="/dashboard/games") Games
-    li
-      a(href="/dashboard/teams") Teams
-    li
-      a(href="/dashboard/players") Players
-    li
-      a(href="/dashboard/watch") Watch
+        div.row
+          div.col.s6
+            h5.white-text Vigridr Gaming League
+            p.grey-text.text-lighten-4 Welcome to the Vigridr Gaming League! Please have a look around. This site will be used for tracking just about everything that has to do with the league. For answers to questions, or to leave a comment or complaint, please contact:
+            h6.grey-text.text-lighten-4
+              a(href="mailto:admin@vigridrgaming.com?Subject=Emailing%20About%20The%20League" target="_top") admin@vigridrgaming.com
+          div#footer-links.col.s6
+            h5.white-text Looking For Something?
+            ul
+              li
+                a(href="https://discord.gg/6WcW68U" class="grey-text text-lighten-3") Check out our Discord!
+              li
+                a(href="https://paypal.me/pools/c/89KS2XQcnN" class="grey-text text-lighten-3") Secure PayPal Money Pool 
+              li
+                a(href="/" class="grey-text text-lighten-3") Voting
+              li
+                a(href="#" class="grey-text text-lighten-3") My Profile
+      div.footer-copyright
+        div.container
+          span © 2018 Vigridr Gaming League
+          a(id="footer-discord" href="https://discord.gg/6WcW68U" class="grey-text text-lighten-4 right") 
+            i.fab.fa-discord  Vigridr Discord
+    ul#mobile-menu.sidenav
+      li
+        a(href="/dashboard/games") Games
+      li
+        a(href="/dashboard/teams") Teams
+      li
+        a(href="/dashboard/players") Players
+      li
+        a(href="/dashboard/watch") Watch

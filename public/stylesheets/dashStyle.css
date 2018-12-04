@@ -1,7 +1,7 @@
 nav {
     background-image: url('/images/vigridrbanner.png');
     background-position-y: 12%;
-    height: 7vh;
+    background-color: #000000;
     -webkit-box-shadow: 0 8px 15px black !important;
     -moz-box-shadow: 0 8px 15px black !important;
     box-shadow: 0 8px 15px black !important;
@@ -59,23 +59,61 @@ nav {
     transform: translateY(0);
 }
 
+.carousel-reveal {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+} 
+
+.carousel-reveal:before {
+    content: attr(data-line);
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 20, 20, 0.2);
+    height: 100%;
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.carousel-reveal:hover:before, .carousel-reveal:focus:before, .carousel-reveal:active:before {
+    background: rgba(20, 20, 20, 0.5);
+}
+
 #body {
-    height: 95vh;
+    height: 100%;
     background-color: rgb(15, 15, 15);
 }
 
 .page-footer {
-    background: rgba(18,18,18,1);
-    background: -moz-linear-gradient(top, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(18,18,18,1)), color-stop(100%, rgba(0,0,0,1)));
-    background: -webkit-linear-gradient(top, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
-    background: -o-linear-gradient(top, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
-    background: -ms-linear-gradient(top, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
-    background: linear-gradient(to bottom, rgba(18,18,18,1) 0%, rgba(0,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#121212', endColorstr='#000000', GradientType=0 );
+    background: rgb(9,9,9);
+    background: linear-gradient(0deg, rgba(9,9,9,1) 9%, rgba(24,24,24,1) 67%, rgba(31,31,31,1) 100%);
     -webkit-box-shadow: 0 -8px 15px black !important;
     -moz-box-shadow: 0 -8px 15px black !important;
     box-shadow: 0 -8px 15px black !important;
+}
+
+.card-content {
+    background: rgb(9,9,9);
+    background: linear-gradient(0deg, rgba(9,9,9,1) 9%, rgba(24,24,24,1) 67%, rgba(31,31,31,1) 100%);
+}
+
+.card-content p {
+    padding-left:  15%;
+    padding-right: 15%;
+    padding-top: 15px;
 }
 
 .page-footer a:hover{
@@ -104,7 +142,38 @@ nav {
 }
 
 #firstPanel {
-    background-image: url('/images/games/solid/artifact_card.jpg');
+    background-image: url('/images/vigridrBanner.png');
+}
+
+#secondPanel {
+    background-image: url('/images/carouselImages/cardPage.jpg');
+}
+
+#thirdPanel {
+    background-image: url('/images/carouselImages/esportscrowd.jpg');
+}
+
+.card {
+    border: solid 5px #000000;
+    margin-bottom: 50px;
+}
+
+.valign-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-item {
+    padding-top: 10%;
     background-size: cover;
     background-position-y: 35%;
+}
+
+#mobilelogo {
+    margin-top: 2px;
+    padding-bottom: 5px;
+}
+
+.card-title {
+    text-shadow: 2px 2px 5px #000000;
 }
