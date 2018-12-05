@@ -11,6 +11,4 @@ router.get('/getChart', gamesController.getGameChart);
 
 router.get('/getTop5Games', gamesController.getTop5Games);
 
-router.get('/getCalledGames', gamesController.getCalledGames);
-
 module.exports = router;

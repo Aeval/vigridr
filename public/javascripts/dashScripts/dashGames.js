@@ -2,12 +2,26 @@ getChart();
 getTop5Games();
 
 function getTop5Games() {
+  var voteContent = '';
+
   $.ajax({
     Type: 'GET',
     url: '/games/getTop5Games/',
     dataType: 'JSON'
   }).done(function (resp) {
     console.log(resp);
+    $.each(resp, function(){
+      voteContent += '<div class="card hoverable small white-text blue-grey darken-3">';
+      voteContent += '<div class="card-image">';
+      voteContent += '<img src="' + this.pic + '" height="150px" width="400px" alt="' + this.game + '"></img>';
+      voteContent += '</div>';
+      voteContent += '<div class="card-content">';
+      voteContent += '<h4>' + this.game + '</h4>';
+      voteContent += '</div>';
+      voteContent += '</div>';
+    })
+
+    $('#voteDisp').html(voteContent);
   });
 }
 
