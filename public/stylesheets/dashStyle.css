@@ -144,14 +144,17 @@ nav {
 
 #firstPanel {
     background-image: url('/images/vigridrBanner.png');
+    background-position-y: 35%;
 }
 
 #secondPanel {
-    background-image: url('/images/carouselImages/cardPage.jpg');
+    background-image: url('/images/carouselImages/artifactAmulet.jpg');
+    background-position-y: 50%;
 }
 
 #thirdPanel {
     background-image: url('/images/carouselImages/esportscrowd.jpg');
+    background-position-y: 35%;
 }
 
 .card {
@@ -168,7 +171,12 @@ nav {
 .carousel-item {
     padding-top: 10%;
     background-size: cover;
-    background-position-y: 35%;
+/*     background-position-y: 35%; */
+}
+
+.carousel-item p{
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 #mobilelogo {
