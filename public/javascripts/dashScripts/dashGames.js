@@ -19,7 +19,7 @@ function getTop5Games() {
     ];
 
     $.each(first, function(){
-      firstContent += '<div class="voteStand col m6 offset-m3">';
+      firstContent += '<div class="voteStand col m5 offset-m4">';
       firstContent += '<div class="card hoverable small white-text z-depth-3">';
       firstContent += '<div class="card-image">';
       firstContent += '<img src="' + this.pic + '" height="250px" width="400px" alt="' + this.game + '"></img>';
@@ -31,7 +31,7 @@ function getTop5Games() {
       firstContent += '</div>';
     })
     $.each(second, function(){
-      voteContent += '<div class="voteStand col m4 offset-m1">';
+      voteContent += '<div class="voteStand col m3 offset-m2">';
       voteContent += '<div class="card hoverable small white-text z-depth-3">';
       voteContent += '<div class="card-image">';
       voteContent += '<img src="' + this.pic + '" height="250px" width="400px" alt="' + this.game + '"></img>';
