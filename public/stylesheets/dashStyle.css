@@ -203,7 +203,7 @@ nav {
 }
 
 #voteDisp  .card-image {
-    height: 100vh
+    height: 290px;
 }
 
 #voteDisp .voteStand:first-child .card-content {
