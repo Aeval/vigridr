@@ -14,7 +14,7 @@ function getTop5Games() {
     $.each(resp, function(){
       voteContent += '<div class="voteStand col m4">';
       voteContent += '<div class="card hoverable small white-text z-depth-3">';
-      voteContent += '<div class="card-image" style="background-image: url("'+ this.pic +'");background-color: #000000;background-size: cover;">';
+      voteContent += '<div class="card-image" style="background-image: url('+ this.pic +');background-color: #000000;background-size: cover;">';
       voteContent += '</div>';
       voteContent += '<div class="card-content center">';
       voteContent += '<h4>' + this.name + '</h4>';
