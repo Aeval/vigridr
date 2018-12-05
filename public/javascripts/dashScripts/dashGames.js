@@ -2,6 +2,7 @@ getChart();
 getTop5Games();
 
 function getTop5Games() {
+  var firstContent = '';
   var voteContent = '';
 
   $.ajax({
