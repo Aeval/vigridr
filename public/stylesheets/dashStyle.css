@@ -206,19 +206,19 @@ nav {
     background-position-y: 35%;
 }
 
-#voteFirst .voteStand:first-child .card-content {
+#voteDisp .voteStand:first-child .card-content {
     background: rgb(255,223,105);
     background: linear-gradient(180deg, rgba(255,223,105,1) 9%, rgba(255,183,12,1) 67%, rgba(176,124,0,1) 100%);
     color: #000000 !important;
 }
 
-#voteDisp .voteStand:first-child .card-content {
+#voteDisp .voteStand:nth-child(2) .card-content {
     background: rgb(231,231,231);
     background: linear-gradient(180deg, rgba(231,231,231,1) 9%, rgba(143,143,143,1) 55%, rgba(93,93,93,1) 100%);
     color: #000000 !important;
 }
 
-#voteDisp .voteStand:nth-child(2) .card-content {
+#voteDisp .voteStand:nth-child(3) .card-content {
     background: rgb(232,134,63);
     background: linear-gradient(180deg, rgba(232,134,63,1) 9%, rgba(196,99,28,1) 55%, rgba(92,39,0,1) 100%);
     color: #000000 !important;

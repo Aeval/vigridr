@@ -2,7 +2,7 @@ getChart();
 getTop5Games();
 
 function getTop5Games() {
-  var firstContent = '';
+
   var voteContent = '';
 
   $.ajax({
@@ -10,28 +10,9 @@ function getTop5Games() {
     url: '/games/getTop5Games/',
     dataType: 'JSON'
   }).done(function (resp) {
-    var first = [
-      resp[0]
-    ];
-    var second = [
-      resp[1],
-      resp[2]
-    ];
 
-    $.each(first, function(){
-      firstContent += '<div class="voteStand col m5 offset-m4">';
-      firstContent += '<div class="card hoverable small white-text z-depth-3">';
-      firstContent += '<div class="card-image">';
-      firstContent += '<img src="' + this.pic + '" height="250px" width="400px" alt="' + this.game + '"></img>';
-      firstContent += '</div>';
-      firstContent += '<div class="card-content center">';
-      firstContent += '<h4>' + this.name + '</h4>';
-      firstContent += '</div>';
-      firstContent += '</div>';
-      firstContent += '</div>';
-    })
-    $.each(second, function(){
-      voteContent += '<div class="voteStand col m3 offset-m2">';
+    $.each(resp, function(){
+      voteContent += '<div class="voteStand col m4">';
       voteContent += '<div class="card hoverable small white-text z-depth-3">';
       voteContent += '<div class="card-image">';
       voteContent += '<img src="' + this.pic + '" height="250px" width="400px" alt="' + this.game + '"></img>';
@@ -43,7 +24,6 @@ function getTop5Games() {
       voteContent += '</div>';
     })
 
-    $('#voteFirst').html(firstContent);
     $('#voteDisp').html(voteContent);
   });
 }
