@@ -31,3 +31,8 @@ $(document).ready(function(){
 
 });
 
+$('.btn-floating').hover(function() {
+    $(this).addClass('pulse');
+}, function() {
+    $(this).removeClass('pulse');
+});
