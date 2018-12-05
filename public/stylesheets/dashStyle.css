@@ -202,8 +202,8 @@ nav {
     padding-bottom: 10px;
 }
 
-#voteDisp {
-    background-position-y: 35%;
+#voteDisp  .card-content {
+    height: 50px;
 }
 
 #voteDisp .voteStand:first-child .card-content {
@@ -226,4 +226,9 @@ nav {
 
 .mt {
     margin-top: 5vh;
+}
+
+img{
+    height: 100%;
+    width: 100%;
 }
