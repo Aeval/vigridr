@@ -11,12 +11,14 @@ function getTop5Games() {
   }).done(function (resp) {
     console.log(resp);
     $.each(resp, function(){
-      voteContent += '<div class="card hoverable small white-text">';
+      voteContent += '<div class="col m3 offset-m1">';
+      voteContent += '<div class="card hoverable small white-text z-depth-3">';
       voteContent += '<div class="card-image">';
       voteContent += '<img src="' + this.pic + '" height="250px" width="400px" alt="' + this.game + '"></img>';
       voteContent += '</div>';
       voteContent += '<div class="card-content">';
       voteContent += '<h4>' + this.name + '</h4>';
+      voteContent += '</div>';
       voteContent += '</div>';
       voteContent += '</div>';
     })
