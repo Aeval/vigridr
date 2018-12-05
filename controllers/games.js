@@ -54,7 +54,7 @@ exports.getTop5Games = function (req, res) {
   var db = req.db;
   var collection = db.get('votes');
   collection.find({}, {
-    limit: 5,
+    limit: 3,
     sort: {
       votes: -1
     }
