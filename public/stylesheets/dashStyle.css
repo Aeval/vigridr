@@ -108,6 +108,7 @@ nav {
 .card-content {
     background: rgb(9,9,9);
     background: linear-gradient(0deg, rgba(9,9,9,1) 9%, rgba(24,24,24,1) 67%, rgba(31,31,31,1) 100%);
+    border-radius: 0% !important;
 }
 
 .card-content p {
@@ -155,6 +156,7 @@ nav {
 
 .card {
     border: solid 5px #000000;
+    border-radius: 5px;
     margin-bottom: 50px;
 }
 
@@ -175,5 +177,9 @@ nav {
 }
 
 .card-title {
-    text-shadow: 2px 2px 5px #000000;
+    text-shadow: -3px 3px 3px #000000;
+}
+
+.card-image {
+    border-radius: 0% !important;
 }
