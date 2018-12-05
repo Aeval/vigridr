@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
     var options = {
         edge: "left"
     }
@@ -21,9 +21,9 @@ $(document).ready(function(){
         dashboardCaro.next();
     }
 
-    $('#dashCaro').hover(function() {
+    $('#dashCaro').hover(function () {
         clearInterval(caroTimer);
-    }, function() {
+    }, function () {
         clearInterval(caroTimer);
         caroTimer = '';
         caroTimer = setInterval(nextSlide, 6000);
@@ -31,8 +31,8 @@ $(document).ready(function(){
 
 });
 
-$('.btn-floating').hover(function() {
+$('.btn-floating').hover(function () {
     $(this).addClass('pulse');
-}, function() {
+}, function () {
     $(this).removeClass('pulse');
 });

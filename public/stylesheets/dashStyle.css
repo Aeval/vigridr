@@ -1,3 +1,4 @@
+/* NavBar Styling */
 nav {
     background-image: url('/images/vigridrBanner.png');
     background-position-y: 12%;
@@ -5,10 +6,6 @@ nav {
     -webkit-box-shadow: 0 8px 15px black !important;
     -moz-box-shadow: 0 8px 15px black !important;
     box-shadow: 0 8px 15px black !important;
-}
-
-.brand-logo {
-    margin-left: 10px;
 }
 
 #nav-mobile.center {
@@ -23,6 +20,23 @@ nav {
 
 #nav-mobile.center li:hover {
     line-height: 75px;
+}
+
+.brand-logo {
+    margin-left: 10px;
+}
+
+#mobilelogo {
+    margin-top: 2px;
+    padding-bottom: 5px;
+}
+
+.login {
+    margin-right: 20px;
+}
+
+.login:hover {
+    color: rgb(196, 0, 0);
 }
 
 .hvr-overline-reveal {
@@ -54,9 +68,17 @@ nav {
     transition-timing-function: ease-out;
 }
 
-.hvr-overline-reveal:hover:before, .hvr-overline-reveal:focus:before, .hvr-overline-reveal:active:before {
+.hvr-overline-reveal:hover:before,
+.hvr-overline-reveal:focus:before,
+.hvr-overline-reveal:active:before {
     -webkit-transform: translateY(0);
     transform: translateY(0);
+}
+
+/* Body Styling - Cards, Carousels, etc. */
+#body {
+    height: 100%;
+    background-color: rgb(15, 15, 15);
 }
 
 .carousel-reveal {
@@ -67,7 +89,7 @@ nav {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     position: relative;
     overflow: hidden;
-} 
+}
 
 .carousel-reveal:before {
     content: attr(data-line);
@@ -88,54 +110,20 @@ nav {
     transition-timing-function: ease-out;
 }
 
-.carousel-reveal:hover:before, .carousel-reveal:focus:before, .carousel-reveal:active:before {
+.carousel-reveal:hover:before,
+.carousel-reveal:focus:before,
+.carousel-reveal:active:before {
     background: rgba(20, 20, 20, 0.5);
 }
 
-#body {
-    height: 100%;
-    background-color: rgb(15, 15, 15);
+.carousel-item {
+    padding-top: 10%;
+    background-size: cover;
 }
 
-.page-footer {
-    background: rgb(9,9,9);
-    background: linear-gradient(0deg, rgba(9,9,9,1) 9%, rgba(24,24,24,1) 67%, rgba(31,31,31,1) 100%);
-    -webkit-box-shadow: 0 -8px 15px black !important;
-    -moz-box-shadow: 0 -8px 15px black !important;
-    box-shadow: 0 -8px 15px black !important;
-}
-
-.card-content {
-    background: rgb(9,9,9);
-    background: linear-gradient(0deg, rgba(9,9,9,1) 9%, rgba(24,24,24,1) 67%, rgba(31,31,31,1) 100%);
-    border-radius: 0% !important;
-}
-
-.card-content p {
-    padding-left:  15%;
-    padding-right: 15%;
-    padding-top: 15px;
-}
-
-.page-footer a:hover{
-    text-decoration-line: underline;
-    text-decoration-color: inherit;
-}
-
-#footer-discord i:hover {
-    color: #7289DA;
-}
-
-#footer-links {
+.carousel-item p {
     padding-left: 20%;
-}
-
-.login {
-    margin-right: 20px;
-}
-
-.login:hover {
-    color: rgb(196, 0, 0);
+    padding-right: 20%;
 }
 
 #title-card {
@@ -163,27 +151,6 @@ nav {
     margin-bottom: 50px;
 }
 
-.valign-wrapper {
-    height: 100%;
-    width: 100%;
-}
-
-.carousel-item {
-    padding-top: 10%;
-    background-size: cover;
-/*     background-position-y: 35%; */
-}
-
-.carousel-item p{
-    padding-left: 20%;
-    padding-right: 20%;
-}
-
-#mobilelogo {
-    margin-top: 2px;
-    padding-bottom: 5px;
-}
-
 .card-title {
     text-shadow: -3px 3px 3px #000000;
 }
@@ -193,6 +160,41 @@ nav {
     background-color: #0e0e0e;
 }
 
+.card-content {
+    background: rgb(9, 9, 9);
+    background: linear-gradient(0deg, rgba(9, 9, 9, 1) 9%, rgba(24, 24, 24, 1) 67%, rgba(31, 31, 31, 1) 100%);
+    border-radius: 0% !important;
+}
+
+.card-content p {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 15px;
+}
+
+/* Footer Styling  */
+.page-footer {
+    background: rgb(9, 9, 9);
+    background: linear-gradient(0deg, rgba(9, 9, 9, 1) 9%, rgba(24, 24, 24, 1) 67%, rgba(31, 31, 31, 1) 100%);
+    -webkit-box-shadow: 0 -8px 15px black !important;
+    -moz-box-shadow: 0 -8px 15px black !important;
+    box-shadow: 0 -8px 15px black !important;
+}
+
+.page-footer a:hover {
+    text-decoration-line: underline;
+    text-decoration-color: inherit;
+}
+
+#footer-discord i:hover {
+    color: #7289DA;
+}
+
+#footer-links {
+    padding-left: 20%;
+}
+
+/* Starting dashGames Styling */
 #dashGameChart {
     padding-top: 10px;
     padding-bottom: 10px;
