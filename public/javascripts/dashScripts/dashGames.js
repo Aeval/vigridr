@@ -9,20 +9,40 @@ function getTop5Games() {
     url: '/games/getTop5Games/',
     dataType: 'JSON'
   }).done(function (resp) {
-    console.log(resp);
-    $.each(resp, function(){
-      voteContent += '<div class="voteStand col m2 offset-m1">';
+    var first = [
+      resp[0]
+    ];
+    var second = [
+      resp[1],
+      resp[2]
+    ];
+
+    $.each(first, function(){
+      firstContent += '<div class="voteStand col m10 offset-m1">';
+      firstContent += '<div class="card hoverable small white-text z-depth-3">';
+      firstContent += '<div class="card-image">';
+      firstContent += '<img src="' + this.pic + '" height="250px" width="400px" alt="' + this.game + '"></img>';
+      firstContent += '</div>';
+      firstContent += '<div class="card-content center">';
+      firstContent += '<h4>' + this.name + '</h4>';
+      firstContent += '</div>';
+      firstContent += '</div>';
+      firstContent += '</div>';
+    })
+    $.each(second, function(){
+      voteContent += '<div class="voteStand col m5 offset-m1">';
       voteContent += '<div class="card hoverable small white-text z-depth-3">';
       voteContent += '<div class="card-image">';
       voteContent += '<img src="' + this.pic + '" height="250px" width="400px" alt="' + this.game + '"></img>';
       voteContent += '</div>';
-      voteContent += '<div class="card-content">';
+      voteContent += '<div class="card-content center">';
       voteContent += '<h4>' + this.name + '</h4>';
       voteContent += '</div>';
       voteContent += '</div>';
       voteContent += '</div>';
     })
 
+    $('#voteFirst').html(firstContent);
     $('#voteDisp').html(voteContent);
   });
 }
