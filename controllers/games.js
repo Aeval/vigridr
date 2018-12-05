@@ -10,6 +10,23 @@ exports.getGames = function(req, res) {
   });
 }
 
+exports.getCalledGames = function(req, res) {
+  var db = req.db;
+  var collection = db.get('games');
+  var first = req.query.game1
+  var second = req.query.game2
+  var third = req.query.game3
+  var fourth = req.query.game4
+  var fifth = req.query.game5
+  console.log(first);
+  collection.find({ $and : [
+      { $or : [{'gameid': `${first}`}, {'gameid': `${second}`}, {'gameid': `${third}`}, {'gameid': `${fourth}`}, {'gameid': `${fifth}`}]}
+    ]},
+    {},function(e,docs){
+    res.json(docs);
+  });
+}
+
 exports.submitVote = function(req, res){
   var db = req.db;
   var userdb = db.get('users');
@@ -32,6 +49,14 @@ exports.getGameChart = function(req, res) {
   var db = req.db;
   var collection = db.get('votes');
   collection.find({},{},function(e,docs){
+    res.json(docs);
+  });
+}
+
+exports.getTop5Games = function(req, res) {
+  var db = req.db;
+  var collection = db.get('votes');
+  collection.find({}, {limit: 5, sort: {votes: -1}}, function(e,docs){
     res.json(docs);
   });
 }

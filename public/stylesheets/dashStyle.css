@@ -190,4 +190,14 @@ nav {
 
 .card-image {
     border-radius: 0% !important;
+    background-color: #0e0e0e;
+}
+
+#dashGameChart {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.mt {
+    margin-top: 5vh;
 }

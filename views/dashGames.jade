@@ -1,4 +1,4 @@
-extends dashLayout
+extends dashGamesLayout
 
 block content
   div.navbar-fixed
@@ -19,6 +19,15 @@ block content
         a(href="#" class="login right")
           i.fas.fa-user-circle.fa-2x
   div#body.container-fluid
+    div#voteStandings.row
+    div.row
+      div.col.s10.offset-s1
+        div.card.z-depth-3.mt
+          div.card-image
+            canvas(id="dashGameChart" height="100%")
+          div.card-content.white-text.center
+            h5 Make sure you vote! How's your pick doing?
+            p Go back to the voting screen to vote on your favorites for this season, and make sure they are included in the first season of the Vigridr Gaming League!
   footer.page-footer
     div.container
       div.row
