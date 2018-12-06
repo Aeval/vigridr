@@ -227,3 +227,7 @@ nav {
 .mt {
     margin-top: 5vh;
 }
+
+#textheader {
+    padding-top: 10px;
+}
