@@ -1,3 +1,11 @@
+$(document).ready(function () {
+  var options = {
+      edge: "left"
+  }
+  var elems = document.querySelectorAll('.sidenav');
+  var sidenavInstances = M.Sidenav.init(elems, options);
+});
+
 getChart();
 getTop5Games();
 

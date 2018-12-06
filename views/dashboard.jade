@@ -59,36 +59,5 @@ block content
               i.fas.fa-donate
           div.card-content.white-text.center
             p Click on the button to head over to our secure PayPal Donation Pool! Check up on the current total prize pool and see who has donated, and get a peek of who is championing which local charity!
-    footer.page-footer
-      div.container
-        div.row
-          div.col.s6
-            h5.white-text Vigridr Gaming League
-            p.grey-text.text-lighten-4 Welcome to the Vigridr Gaming League! Please have a look around. This site will be used for tracking just about everything that has to do with the league. For answers to questions, or to leave a comment or complaint, please contact:
-            h6.grey-text.text-lighten-4
-              a(href="mailto:admin@vigridrgaming.com?Subject=Emailing%20About%20The%20League" target="_top") admin@vigridrgaming.com
-          div#footer-links.col.s6
-            h5.white-text Looking For Something?
-            ul
-              li
-                a(href="https://discord.gg/6WcW68U" class="grey-text text-lighten-3") Check out our Discord!
-              li
-                a(href="https://paypal.me/pools/c/89KS2XQcnN" class="grey-text text-lighten-3") Secure PayPal Money Pool 
-              li
-                a(href="/" class="grey-text text-lighten-3") Voting
-              li
-                a(href="#" class="grey-text text-lighten-3") My Profile
-      div.footer-copyright
-        div.container
-          span © 2018 Vigridr Gaming League
-          a(id="footer-discord" href="https://discord.gg/6WcW68U" class="grey-text text-lighten-4 right") 
-            i.fab.fa-discord  Vigridr Discord
-    ul#mobile-menu.sidenav
-      li
-        a(href="/dashboard/games") Games
-      li
-        a(href="/dashboard/teams") Teams
-      li
-        a(href="/dashboard/players") Players
-      li
-        a(href="/dashboard/watch") Watch
+  include ./parts/footer.jade
+  include ./parts/mobileSideNav.jade
