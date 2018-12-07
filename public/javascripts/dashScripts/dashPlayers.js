@@ -19,22 +19,16 @@ function getUsers() {
     }).done(function (resp) {
         console.log(resp);
         $.each(resp, function () {
-            playerList += '<a class="collection-item avatar">';
-            playerList += '<i class="material-icons circle">face</i>';
-            playerList += '<span class="title">'+ this.username +'</span>';
-            playerList += '<p>'+ this.company +' <br>';
-            playerList += 'Steam: '+ this.steam +' | Battlenet: '+ this.bnet;
-            playerList += '</p>'
-            playerList += '</a>';
-            playerList += '<a class="collection-item avatar">';
-            playerList += '<i class="material-icons circle">face</i>';
-            playerList += '<span class="title">'+ this.username +'</span>';
-            playerList += '<p>'+ this.company +' <br>';
-            playerList += 'Steam: '+ this.steam +' | Battlenet: '+ this.bnet;
-            playerList += '</p>'
-            playerList += '</a>';
+            playerList += '<tr>';
+            playerList += '<td><i class="material-icons circle">face</i></td>';
+            playerList += '<td>'+ this.username +'</td>';
+            playerList += '<td>'+ this.company +'</td>';
+            playerList += '<td>'+ this.steam +'</td>';
+            playerList += '<td>'+ this.bnet + '</td>';
+            playerList += '<td style="padding-left: 12px;"><i class="fas fa-id-card"></i></td>';
+            playerList += '</tr>';
         })
 
-        $('.collection').html(playerList);
+        $('tbody').html(playerList);
     });
 }

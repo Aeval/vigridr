@@ -241,13 +241,24 @@ nav {
 }
 
 /* PlayerDash Styling */
-.collection .collection-item {
+tr {
     background-color: #121212;
     color: aliceblue;
     border-color: #000000;
 }
 
+tr td {
+    border-radius: 0%;
+}
 
+thead tr {
+    width: 100%;
+    background-color: rgb(196, 0, 0);
+}
+
+thead th {
+    border-radius: 0%;
+}
 
 .collection {
     max-height: 50vh;
