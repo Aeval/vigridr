@@ -4,6 +4,7 @@ $(document).ready(function () {
   }
   var elems = document.querySelectorAll('.sidenav');
   var sidenavInstances = M.Sidenav.init(elems, options);
+
 });
 
 getChart();
@@ -16,7 +17,7 @@ function getTop5Games() {
   $.ajax({
     Type: 'GET',
     url: '/games/getTop5Games/',
-    dataType: 'JSON'
+    dataType: 'JSON',
   }).done(function (resp) {
 
     $.each(resp, function(){
@@ -41,9 +42,13 @@ function getChart() {
   $.ajax({
     Type: 'GET',
     url: '/games/getChart/',
-    dataType: 'JSON'
+    dataType: 'JSON',
+    beforeSend: function() {
+      $('#body').hide();
+    }
   }).done(function (resp) {
-
+    $('#body').show();
+    $('.preloaderDiv').hide();
     var ctx = document.getElementById("dashGameChart");
     var myChart = new Chart(ctx, {
       type: 'pie',

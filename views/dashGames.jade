@@ -1,37 +1,18 @@
-extends dashGamesLayout
+extends ./layouts/dashGamesLayout
 
 block content
-  div.navbar-fixed
-    nav
-      div.nav-wrapper
-        a(href="/dashboard" class='brand-logo') Vigridr Gaming League
-        a(href="#" data-target="mobile-menu" class="sidenav-trigger")
-          i.material-icons menu
-        ul#nav-mobile.center.hide-on-med-and-down
-          li.hvr-overline-reveal
-            a(href="/dashboard/games") Games
-          li.hvr-overline-reveal
-            a(href="/dashboard/teams") Teams
-          li.hvr-overline-reveal
-            a(href="/dashboard/players") Players
-          li.hvr-overline-reveal
-            a(href="/dashboard/watch") Watch
-        a(href="#" class="login right")
-          i.fas.fa-user-circle.fa-2x
+  include ./components/nav
+  .preloaderDiv.valign-wrapper
+    include ./components/preloader
   div#body.container-fluid
     div#textheader.row
       h2.white-text.center What Games Will Be Played?
       h6.white-text.center The games for this season are currently up for a vote. 3 of 12 possible games will be chosen. See how they are measuring up below!
     div.row
-      div.col.s10.offset-s1
-        div#voteDisp.row
+      div.col.s10.offset-s1.center
+        div#voteDisp.row     
     div.row
       div.col.s10.offset-s1
-        div.card.z-depth-3
-          div.card-image
-            canvas(id="dashGameChart" height="100%")
-          div.card-content.white-text.center
-            h5 Make sure you vote! How's your pick doing?
-            p Go back to the voting screen to vote on your favorites for this season, and make sure they are included in the first season of the Vigridr Gaming League!
-  include ./parts/footer.jade
-  include ./parts/mobileSideNav.jade
+        include ./components/voteChart
+    include ./components/footer
+    include ./components/mobileSideNav

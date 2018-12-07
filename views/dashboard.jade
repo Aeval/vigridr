@@ -1,45 +1,9 @@
-extends dashLayout
+extends ./layouts/dashLayout
 
 block content
-  div.navbar-fixed
-    nav
-      div.nav-wrapper
-        a(href="/dashboard" class='brand-logo hide-on-med-and-down') Vigridr Gaming League
-        a(href="/dashboard" class='brand-logo hide-on-large-only')
-          span Vigridr 
-          span Gaming
-        a(href="#" data-target="mobile-menu" class="sidenav-trigger")
-          i.material-icons menu
-        ul#nav-mobile.center.hide-on-med-and-down
-          li.hvr-overline-reveal
-            a(href="/dashboard/games") Games
-          li.hvr-overline-reveal
-            a(href="/dashboard/teams") Teams
-          li.hvr-overline-reveal
-            a(href="/dashboard/players") Players
-          li.hvr-overline-reveal
-            a(href="/dashboard/watch") Watch
-        a(href="#" class="login right")
-          i.fas.fa-user-circle.fa-2x
+  include ./components/nav
   div#body.container-fluid
-    div.row
-      div#title-card.col.s10.offset-s1
-        div.card.grey.darken-4.z-depth-3
-          div.card-image
-            div#dashCaro.carousel.carousel-slider.center
-              div.carousel-fixed-item.center
-              div(id="firstPanel" class="carousel-item white-text carousel-reveal valign-wrapper" href="#one!")
-                h2 Get In Here!
-                p.white-text Check back here for updates, events and news from the Vigridr Admins! Welcome to the league, feel free to check out all the dashboard has to offer! Sign in at the top left using the same credientals you used during the voting - or register if you're new!
-              div(id="secondPanel" class="carousel-item white-text carousel-reveal" href="#two!")
-                h2 Artifact Has Arrived!
-                p.white-text Given our inability to include Fortnite in the list of games available this season due to private matchmaking restrictions, we have added Artifact - the DOTA 2 card game - in its stead! If you are interested in playing, be sure to vote for it this season!
-              div(id="thirdPanel" class="carousel-item white-text carousel-reveal" href="#three!")
-                h2 Be sure to get set up!
-                p.white-text Make sure you've voted, and when the season kicks off, get a head start by customizing your profile, creating your team, and connecting with fellow Vigridrs in the Discord!
-          div.card-content.white-text.center
-            h5 Welcome to Vigridr
-            p This is your league; your battlefield. Join in with your coworkers and neighbors for a chance to champion a local charity and compete in your favorite e-sports title. The winning team or player of each game's league will have the full prize pool donated to their charity, as well as bragging rights and recognition within the Vigridr community.
+    include ./components/frontSlider
     div.row
       div.col.m10.l5.offset-m1.offset-l1
         div.card.z-depth-3
@@ -59,5 +23,5 @@ block content
               i.fas.fa-donate
           div.card-content.white-text.center
             p Click on the button to head over to our secure PayPal Donation Pool! Check up on the current total prize pool and see who has donated, and get a peek of who is championing which local charity!
-  include ./parts/footer.jade
-  include ./parts/mobileSideNav.jade
+    include ./components/footer.jade
+    include ./components/mobileSideNav.jade

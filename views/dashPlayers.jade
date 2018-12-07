@@ -1,23 +1,13 @@
-extends dashLayout
+extends ./layouts/dashPlayersLayout
 
 block content
-  div.navbar-fixed
-    nav
-      div.nav-wrapper
-        a(href="/dashboard" class='brand-logo') Vigridr Gaming League
-        a(href="#" data-target="mobile-menu" class="sidenav-trigger")
-          i.material-icons menu
-        ul#nav-mobile.center.hide-on-med-and-down
-          li.hvr-overline-reveal
-            a(href="/dashboard/games") Games
-          li.hvr-overline-reveal
-            a(href="/dashboard/teams") Teams
-          li.hvr-overline-reveal
-            a(href="/dashboard/players") Players
-          li.hvr-overline-reveal
-            a(href="/dashboard/watch") Watch
-        a(href="#" class="login right")
-          i.fas.fa-user-circle.fa-2x
+  include ./components/nav
   div#body.container-fluid
-  include ./parts/footer.jade
-  include ./parts/mobileSideNav.jade
+    div#textheader.row
+      h2.white-text.center Meet The Players!
+      h6.white-text.center Whether teammate or competition, you'll find every Vigridr player below, along with some info and the games they'll be participating in. Be sure to say hi!
+    div#playerTable.row
+      div#playerContain.col.s5.offset-s1.center
+        ul.collection
+    include ./components/footer.jade
+    include ./components/mobileSideNav.jade

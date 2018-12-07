@@ -1,31 +1,7 @@
-extends dashLayout
+extends ./layouts/dashLayout
 
 block content
-  div.navbar-fixed
-    nav
-      div.nav-wrapper
-        a(href="/dashboard" class='brand-logo') Vigridr Gaming League
-        a(href="#" data-target="mobile-menu" class="sidenav-trigger")
-          i.material-icons menu
-        ul#nav-mobile.center.hide-on-med-and-down
-          li.hvr-overline-reveal
-            a(href="/dashboard/games") Games
-          li.hvr-overline-reveal
-            a(href="/dashboard/teams") Teams
-          li.hvr-overline-reveal
-            a(href="/dashboard/players") Players
-          li.hvr-overline-reveal
-            a(href="/dashboard/watch") Watch
-        a(href="#" class="login right")
-          i.fas.fa-user-circle.fa-2x
+  include ./components/nav
   div#body.container-fluid
-  include ./parts/footer.jade
-  ul#mobile-menu.sidenav
-    li
-      a(href="/dashboard/games") Games
-    li
-      a(href="/dashboard/teams") Teams
-    li
-      a(href="/dashboard/players") Players
-    li
-      a(href="/dashboard/watch") Watch
+    include ./components/footer.jade
+    include ./components/mobileSideNav.jade

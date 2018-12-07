@@ -231,3 +231,30 @@ nav {
 #textheader {
     padding-top: 10px;
 }
+
+.preloaderDiv {
+    z-index: 999999;
+    background-color: rgb(15, 15, 15);
+    height: 100vh;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+/* PlayerDash Styling */
+.collection .collection-item {
+    background-color: #121212;
+    color: aliceblue;
+    border-color: #000000;
+}
+
+
+
+.collection {
+    max-height: 50vh;
+    border-color: #000000;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
