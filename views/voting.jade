@@ -4,22 +4,11 @@ block content
   include ./components/nav
   div.container-fluid
     div.row
-      div.col.s10.offset-s1.white-text.center-align
-        img(src="/images/fenrirLogo.png", alt="Logo", height="200px", width="200px")
-        h3= title
-        p#headmsg Welcome to the Thorlabs Vigridr Charity Gaming League! Please vote for the games you would be interested in playing or watching this season. After the games are decided, we will determine the donation amount for sign-ups and victors on Thor's Battlefield will have a chance to have the winnings donated to their choice of charity! Good luck!
-        small Please note: All games will be played on PC, unless noted otherwise.
-        br
-        br
-    div.divider
-    br
-    div#voteText.row
-    div.row
       div#gameDisp.col.s12.cards-container.center-align
-    include ./components/footer
-    include ./components/mobileSideNav
-    include ./components/scriptIncludes/prereqScripts
-    include ./components/scriptIncludes/loginScripts
-    script(src="/javascripts/dashScripts/voting.js")
+  include ./components/footer
+  include ./components/mobileSideNav
+  include ./components/scriptIncludes/prereqScripts
+  include ./components/scriptIncludes/loginScripts
+  script(src="/javascripts/voting.js")
 
 
