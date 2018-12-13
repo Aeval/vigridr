@@ -3,16 +3,24 @@ function checkUser() {
   var userCookie = Cookies.getJSON('user');
 
   if (userCookie) {
-    populateGames();
-    $('#voteText').html('<h5 class="white-text center-align">Vote for the games you want to see in the League!</h5>');
-    $('#btns').html('<a id="logOut" class="waves-effect waves-light red btn"><i class="material-icons left">account_circle</i>' + userCookie.user + '</a>');
-
+    $('#userIn').html('<button id="userDrop" data-target="dropdown" class="dropdown-trigger white-text waves-effect waves-light right btn red">'+ userCookie.user +'</button>');
     $('#logOut').on('click', function () {
       logOutUser();
     })
+
+    var dropOptions = {
+      inDuration: 300,
+      outDuration: 225,
+      hover: true, // Activate on hover
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'right',
+      coverTrigger: false
+    } 
+    var dropelems = document.querySelectorAll('.dropdown-trigger');
+    var dropinstances = M.Dropdown.init(dropelems, dropOptions);
+
   } else {
-    populateGamesList();
-    $('#voteText').html('<h5 class="white-text center-align">Log in to vote on which games to play!</h5>');
+    $('#userIn').html('<a id="logReg" class="login right"><i class="fas fa-user-circle fa-2x"></i></a>');
   }
 }
 
@@ -55,7 +63,7 @@ function logIn(user) {
       iziToast.success({
         title: 'Welcome!',
         message: 'Good to see you, ' + response.user + '!',
-        position: 'topCenter'
+        position: 'bottomRight'
       });
       Cookies.set('user', { token: response.token, user: response.user, votes: response.votes }, { expires: 1 });
       checkUser();

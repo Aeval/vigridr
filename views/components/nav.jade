@@ -3,7 +3,7 @@ div.navbar-fixed
     div.nav-wrapper
       a(href="/dashboard" class='brand-logo') Vigridr Gaming League
       a(href="#" data-target="mobile-menu" class="sidenav-trigger")
-        i.material-icons menu
+        i.fas.fa-bars
       ul#nav-mobile.center.hide-on-med-and-down
         li.hvr-overline-reveal
           a(href="/dashboard/games") Games
@@ -13,5 +13,8 @@ div.navbar-fixed
           a(href="/dashboard/players") Players
         li.hvr-overline-reveal
           a(href="/dashboard/watch") Watch
-      a(href="#" class="login right")
-        i.fas.fa-user-circle.fa-2x
+      div#userIn
+  include ./login
+  include ./register
+  include ./toasts
+  include ./userDropdown

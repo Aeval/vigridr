@@ -9,6 +9,12 @@ $(document).ready(function () {
 
 getUsers();
 
+var listOptions = {
+    valueNames: ['name', 'company']
+};
+
+var playerList = new List('player-List', listOptions);
+
 function getUsers() {
     var playerList = '';
 
@@ -20,9 +26,9 @@ function getUsers() {
         console.log(resp);
         $.each(resp, function () {
             playerList += '<tr>';
-            playerList += '<td><i class="material-icons circle">face</i></td>';
-            playerList += '<td>'+ this.username +'</td>';
-            playerList += '<td>'+ this.company +'</td>';
+            playerList += '<td style="padding-left: 12px;"><i class="fas fa-smile-beam fa-2x"></i></td>';
+            playerList += '<td class="name">'+ this.username +'</td>';
+            playerList += '<td class="company">'+ this.company +'</td>';
             playerList += '<td>'+ this.steam +'</td>';
             playerList += '<td>'+ this.bnet + '</td>';
             playerList += '<td style="padding-left: 12px;"><i class="fas fa-id-card"></i></td>';

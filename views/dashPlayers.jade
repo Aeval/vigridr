@@ -1,13 +1,13 @@
-extends ./layouts/dashPlayersLayout
+extends layout
 
 block content
   include ./components/nav
-  div#body.container-fluid
+  div#bodyPlayers.container-fluid
     div#textheader.row
       h2.white-text.center Meet The Players!
       h6.white-text.center Whether teammate or competition, you'll find every Vigridr player below, along with some info and the games they'll be participating in. Be sure to say hi!
-    div#playerTable.row
-      div#playerContain.col.s10.offset-s1.center
+    div.row
+      div.col.s10.offset-s1.center
         table.highlight
           thead
             tr
@@ -17,7 +17,9 @@ block content
               th Steam
               th Battlenet
               th Card
-          tbody
-
-    include ./components/footer.jade
-    include ./components/mobileSideNav.jade
+          tbody.list
+  include ./components/footer.jade
+  include ./components/mobileSideNav.jade
+  include ./components/scriptIncludes/prereqScripts
+  include ./components/scriptIncludes/loginScripts
+  script(src="/javascripts/dashScripts/dashPlayers.js")

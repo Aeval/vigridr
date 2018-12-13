@@ -1,4 +1,4 @@
-extends ./layouts/dashGamesLayout
+extends layout
 
 block content
   include ./components/nav
@@ -16,3 +16,7 @@ block content
         include ./components/voteChart
     include ./components/footer
     include ./components/mobileSideNav
+  include ./components/scriptIncludes/prereqScripts
+  include ./components/scriptIncludes/loginScripts
+  script(src="/javascripts/libraries/chart.min.js")
+  script(src="/javascripts/dashScripts/dashGames.js")

@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
+const checkAuth = require('../middleware/check-auth');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Thorlabs | Vigridr Charity League' });
-});
-
-router.get('/dashboard', function(req, res, next) {
   res.render('dashboard', { title: 'Thorlabs | Vigridr Charity League' });
 });
+
+router.get('/voting', function(req, res, next) {
+  res.render('voting', { title: 'Game Voting | Vigridr Charity League' });
+}, checkAuth);
 
 router.get('/dashboard/games', function(req, res, next) {
   res.render('dashGames', { title: 'Games | Vigridr Charity League' });

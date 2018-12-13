@@ -1,0 +1,50 @@
+//Reg Modal
+div(id="modal-reg")
+  form(name="regForm")
+    div.row
+      div.input-field.col.s12.grey-text
+        i.fas.fa-user-circle.prefix
+        input(id="regUserName" type="text" class="validate white-text" required)
+        label(for="regUserName") Username
+    div.row
+      div.input-field.col.s6.grey-text
+        i.fas.fa-user.prefix
+        input(id="regFirstName" type="text" class="validate white-text" required)
+        label(for="regFirstName") First Name
+      div.input-field.col.s6.grey-text
+        i.fas.fa-user.prefix
+        input(id="regLastName" type="text" class="validate white-text" required)
+        label(for="regLastName") Last name
+    div.row
+      div.input-field.col.s6.grey-text
+        i.prefix
+          img(src="/images/bnet.svg")
+        input(id="regBattlenet" type="text" class="validate white-text")
+        label(for="regBattlenet") Battlenet Tag (Optional)
+      div.input-field.col.s6.grey-text
+        i.fab.fa-steam.prefix
+        input(id="regSteamid" type="text" class="validate white-text")
+        label(for="regSteamid") SteamID (Optional)
+    div.row
+      div.input-field.col.s12.grey-text
+        i.fas.fa-envelope.prefix
+        input(id="regEmail" type="email" class="validate white-text" required)
+        label(for="regEmail") Email
+    div.row
+      div.input-field.col.s12.grey-text
+        i.fas.fa-building.prefix
+        input(id="regCompany" type="text" class="validate white-text" required)
+        label(for="regCompany") Company
+    div.row
+      div.input-field.col.s12.grey-text
+        i.fas.fa-key.prefix
+        input(id="regPassword" minlength="8" maxlength="16" type="password" class="validate white-text" required)
+        label(for="regPassword") Password
+    div.row
+      div.input-field.col.s12.grey-text
+        i.fas.fa-key.prefix
+        input(id="regConfirmPassword" minlength="8" maxlength="16" type="password" class="validate white-text" required)
+        label(for="regConfirmPassword") Confirm Password
+    div.row
+      div.input-field.col.s12.center-align
+        button(id="regSubmit" type="submit" class="btn waves-effect waves-light red hoverable") Register!

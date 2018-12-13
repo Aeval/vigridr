@@ -1,0 +1,16 @@
+//Login Modal
+div(id="modal-login")
+  form(name="logForm")
+    div.row
+      div.input-field.col.s12.grey-text
+        i.fas.fa-user-circle.prefix
+        input(id="logUserName" type="text" class="validate white-text" required)
+        label(for="logUserName") Username
+    div.row
+      div.input-field.col.s12.grey-text
+        i.fas.fa-key.prefix
+        input(id="logPassword" type="password" class="validate white-text" required)
+        label(for="logPassword") Password
+    div.row
+      div.input-field.col.s12.center-align
+        button(id="logSubmit" type="submit" class="btn waves-effect waves-light red hoverable") Log In!

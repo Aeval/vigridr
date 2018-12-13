@@ -1,16 +1,9 @@
 var userData = [];
 
 //On page ready
-$(document).ready(function(){
-    checkUser();
+checkUser();
 
-    var elems = $('.fixed-action-btn');
-    var instances = M.FloatingActionButton.init(elems, {
-      direction: 'top',
-      hoverEnabled: false
-    });    
-})
-//Reg new user, if not exists, then log them in
+//Reg new user, if not exists, the11n log them in
 $("form[name=regForm]").submit(function(e){
     e.preventDefault();
 
@@ -82,25 +75,24 @@ $("form[name=logForm]").submit(function(e){
     logIn(user);
 })
 //Open Log in modal
-$('#log').on('click', function(e){
+$('#logReg').on('click', function(e){
     /* getLogValues(); */
     e.preventDefault();
     $('#modal-login').iziModal('open');
 });
 //Open Reg modal
-$('#reg').on('click', function(e){
+/* $('#reg').on('click', function(e){
     /* getRegValues(); */
-    e.preventDefault();
-    $('#modal-reg').iziModal('open');
-});
+  /*   e.preventDefault();
+    $('#modal-reg').iziModal('open'); */
+/* }); */
 //Open chart display modal
-$('#chart').on('click', function(e){
-    /* getChart(); */
+/* $('#chart').on('click', function(e){
     e.preventDefault();
     getChart();
     $('#getChart').iziModal('open');
-});
-//All "hover" functions enable each button to pulse on hover
+}); */
+/* //All "hover" functions enable each button to pulse on hover
 $('#chart').hover(function() {
     $(this).addClass('pulse');
 }, function() {
@@ -130,3 +122,4 @@ $('#dash').hover(function() {
 }, function() {
     $(this).removeClass('pulse');
 });
+ */

@@ -81,6 +81,11 @@ nav {
     background-color: rgb(15, 15, 15);
 }
 
+#bodyPlayers{
+    height: 100vh;
+    background-color: rgb(15, 15, 15);
+}
+
 .carousel-reveal {
     display: inline-block;
     vertical-align: middle;
@@ -260,12 +265,33 @@ thead th {
     border-radius: 0%;
 }
 
-.collection {
-    max-height: 50vh;
-    border-color: #000000;
-    overflow: auto;
-}
-
 ::-webkit-scrollbar {
     display: none;
+}
+
+#modal-login, #modal-reg{
+	background-image: url('/images/vigridrBanner.png');
+}
+
+#userDisp{
+    padding-left: 10px;
+    font-size: 25px;
+}
+
+#userDrop {
+    margin-right: 20px;
+    top: 15px;
+}
+
+#dropdown li a{
+    color: rgb(196, 0, 0);
+    background-color: #121212;
+}
+
+#dropdown li a:hover{
+    background-color: #262626;
+}
+
+#dropdown .divider {
+    background-color: rgb(196, 0, 0);
 }

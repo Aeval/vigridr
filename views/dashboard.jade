@@ -1,4 +1,4 @@
-extends ./layouts/dashLayout
+extends layout
 
 block content
   include ./components/nav
@@ -25,3 +25,6 @@ block content
             p Click on the button to head over to our secure PayPal Donation Pool! Check up on the current total prize pool and see who has donated, and get a peek of who is championing which local charity!
     include ./components/footer.jade
     include ./components/mobileSideNav.jade
+  include ./components/scriptIncludes/prereqScripts
+  include ./components/scriptIncludes/loginScripts
+  script(src="/javascripts/dashScripts/dashboard.js")
