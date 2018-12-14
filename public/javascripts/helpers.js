@@ -26,8 +26,8 @@ function checkUser() {
     var instance = M.Dropdown.getInstance('#dropdown');
 
     $('#dropdown').on('click', function () {
-      instance.open()
-    }
+      instance.open();
+    });
 
   } else {
     $('#userIn').html('<a id="logReg" class="login right"><i class="fas fa-user-circle fa-2x"></i></a>');
