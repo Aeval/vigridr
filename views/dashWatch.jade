@@ -2,11 +2,23 @@ extends layout
 
 block content
   include ./components/nav
-  div#bodyPlayers.container-fluid.valign-wrapper
+  div#bodyPlayers.container-fluid
     div.row
       div#voteText.col.s10.offset-s1.center-align.white-text
-        h2.white-text Stay Tuned!
-        h4.white-text The Watch tab will be coming soon!
+        h2.white-text Tune in!
+        h6.white-text Catch us live or catch up on the games you've missed!
+    div.row
+      // Add a placeholder for the Twitch embed
+      #twitch-embed.col.s10.offset-s2
+      // Load the Twitch embed script
+      script(src='https://embed.twitch.tv/embed/v1.js')
+      // Create a Twitch.Embed object that will render within the "twitch-embed" root element.
+      script(type='text/javascript').
+        new Twitch.Embed("twitch-embed", {
+        width: 854,
+        height: 480,
+        channel: "vigridrgaming"
+        });
   include ./components/footer
   include ./components/mobileSideNav
   include ./components/scriptIncludes/prereqScripts
