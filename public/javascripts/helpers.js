@@ -16,19 +16,13 @@ function checkUser() {
     var dropOptions = {
       inDuration: 300,
       outDuration: 225,
-      hover: true, // Activate on hover
+      hover: false, // Activate on hover
       belowOrigin: true, // Displays dropdown below the button
       alignment: 'right',
       coverTrigger: false
     } 
     var dropelems = document.querySelectorAll('.dropdown-trigger');
     var dropinstances = M.Dropdown.init(dropelems, dropOptions);
-    var instance = M.Dropdown.getInstance('#dropdown');
-
-    $('#dropdown').on('click', function () {
-      instance.open();
-    });
-
   } else {
     $('#userIn').html('<a id="logReg" class="login right"><i class="fas fa-user-circle fa-2x"></i></a>');
   }
