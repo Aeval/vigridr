@@ -7,6 +7,10 @@ router.get('/', function(req, res, next) {
   res.render('dashboard', { title: 'Thorlabs | Vigridr Charity League' });
 });
 
+router.get('/profile', function(req, res, next) {
+  res.render('profile', { title: 'My Profile | Vigridr Charity League' });
+});
+
 router.get('/voting', function(req, res, next) {
   res.render('voting', { title: 'Game Voting | Vigridr Charity League' });
 });

@@ -70,7 +70,7 @@ function logIn(user) {
         message: 'Good to see you, ' + response.user + '!',
         position: 'bottomRight'
       });
-      Cookies.set('user', { token: response.token, user: response.user, votes: response.votes }, { expires: 1 });
+      Cookies.set('user', { token: response.token, user: response.user, votes: response.votes, email: response.email}, { expires: 1 });
       location.reload();
     }
   })
@@ -111,12 +111,12 @@ function populateGames() {
       gameContent += '<div class="card-fab">';
       if (gamevotes) {
         if (gamevotes[gameid] > 0) {
-          gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition scale-out"><i class="fas fa-vote-yea"></i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition"><i class="far fa-check-circle"></i></button>';
+          gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition scale-out"><i class="fas fa-vote-yea"></i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition"><i class="fas fa-check"></i></button>';
         } else {
-          gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="fas fa-vote-yea"></i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="far fa-check-circle"></i></button>';
+          gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="fas fa-vote-yea"></i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="fas fa-check"></i></button>';
         }
       } else {
-        gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="fas fa-vote-yea"></i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="far fa-check-circle"></i></button>';
+        gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="fas fa-vote-yea"></i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="fas fa-check"></i></button>';
       }
       gameContent += '</div>';
       gameContent += '<div class="card-content">';

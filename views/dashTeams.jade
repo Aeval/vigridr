@@ -2,6 +2,12 @@ extends layout
 
 block content
   include ./components/nav
-  div#body.container-fluid
-    include ./components/footer.jade
-    include ./components/mobileSideNav.jade
+  div#bodyPlayers.container-fluid.valign-wrapper
+    div.row
+      div#voteText.col.s10.offset-s1.center-align.white-text
+        h2.white-text Stay Tuned!
+        h4.white-text The Teams tab will be coming soon!
+  include ./components/footer
+  include ./components/mobileSideNav
+  include ./components/scriptIncludes/prereqScripts
+  include ./components/scriptIncludes/loginScripts

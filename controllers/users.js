@@ -30,7 +30,8 @@ exports.updateCookie = function (req, res) {
         token: token,
         user: user[0].username,
         admin: user[0].admin,
-        votes: user[0].gamevotes
+        votes: user[0].gamevotes,
+        email: md5(user[0].email)
       });
     }
   });
@@ -73,7 +74,8 @@ exports.login = function (req, res) {
           token: token,
           user: user[0].username,
           admin: user[0].admin,
-          votes: user[0].gamevotes
+          votes: user[0].gamevotes,
+          email: md5(user[0].email)
         });
       }
     }

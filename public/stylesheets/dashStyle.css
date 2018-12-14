@@ -307,3 +307,8 @@ thead th {
 #dropdown .divider {
     background-color: rgb(196, 0, 0);
 }
+
+#voteText {
+    margin-top: 10px;
+    padding: 25px;
+}
