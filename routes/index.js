@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/voting', function(req, res, next) {
   res.render('voting', { title: 'Game Voting | Vigridr Charity League' });
-}, checkAuth);
+});
 
 router.get('/dashboard/games', function(req, res, next) {
   res.render('dashGames', { title: 'Games | Vigridr Charity League' });

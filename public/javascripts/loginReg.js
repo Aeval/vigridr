@@ -74,52 +74,9 @@ $("form[name=logForm]").submit(function(e){
 
     logIn(user);
 })
+
 //Open Log in modal
 $('#logReg').on('click', function(e){
-    /* getLogValues(); */
     e.preventDefault();
     $('#modal-login').iziModal('open');
 });
-//Open Reg modal
-/* $('#reg').on('click', function(e){
-    /* getRegValues(); */
-  /*   e.preventDefault();
-    $('#modal-reg').iziModal('open'); */
-/* }); */
-//Open chart display modal
-/* $('#chart').on('click', function(e){
-    e.preventDefault();
-    getChart();
-    $('#getChart').iziModal('open');
-}); */
-/* //All "hover" functions enable each button to pulse on hover
-$('#chart').hover(function() {
-    $(this).addClass('pulse');
-}, function() {
-    $(this).removeClass('pulse');
-});
-
-$('#discord').hover(function() {
-    $(this).addClass('pulse');
-}, function() {
-    $(this).removeClass('pulse');
-});
-
-$('#donate').hover(function() {
-    $(this).addClass('pulse');
-}, function() {
-    $(this).removeClass('pulse');
-});
-
-$('#info').hover(function() {
-    $(this).addClass('pulse');
-}, function() {
-    $(this).removeClass('pulse');
-});
-
-$('#dash').hover(function() {
-    $(this).addClass('pulse');
-}, function() {
-    $(this).removeClass('pulse');
-});
- */

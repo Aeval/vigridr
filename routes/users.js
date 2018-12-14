@@ -11,6 +11,9 @@ router.get('/users', userController.getAllUsers);
 // GET specific user by username
 router.get('/getuser/:username', userController.getUser);
 
+// Update user cookie
+router.post('/updateCookie', userController.updateCookie);
+
 /* POST to adduser */
 router.post('/adduser', userController.addUser);
 

@@ -283,6 +283,18 @@ thead th {
     top: 15px;
 }
 
+#userDrop:hover {
+    width: 200px;
+}
+
+.dropBtnExp {
+    width: 200px;
+}
+
+#dropdown {
+    width: 200px !important;
+}
+
 #dropdown li a{
     color: rgb(196, 0, 0);
     background-color: #121212;

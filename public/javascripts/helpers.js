@@ -4,6 +4,11 @@ function checkUser() {
 
   if (userCookie) {
     $('#userIn').html('<button id="userDrop" data-target="dropdown" class="dropdown-trigger white-text waves-effect waves-light right btn red">'+ userCookie.user +'</button>');
+    $('#dropdown').hover(function () {
+      $('#userDrop').addClass('dropBtnExp');
+  }, function () {
+      $('#userDrop').removeClass('dropBtnExp');
+  });
     $('#logOut').on('click', function () {
       logOutUser();
     })
@@ -66,9 +71,26 @@ function logIn(user) {
         position: 'bottomRight'
       });
       Cookies.set('user', { token: response.token, user: response.user, votes: response.votes }, { expires: 1 });
-      checkUser();
+      location.reload();
     }
   })
+}
+
+function updateCookie(){
+  var userCookie = Cookies.getJSON('user');
+  var user = {
+    username: userCookie.user
+  };
+
+  $.ajax({
+    type: 'POST',
+    url: '/users/updateCookie/',
+    data: user,
+    dataType: 'JSON'
+  }).done(function (resp) {
+    Cookies.remove('user');
+    Cookies.set('user', { token: resp.token, user: resp.user, votes: resp.votes }, { expires: 1 });
+  });
 }
 
 //Populate games for voting (Logged In) and voting logic
@@ -76,6 +98,7 @@ function populateGames() {
   var gameContent = '';
   var user = Cookies.getJSON('user');
   var gamevotes = user.votes;
+
   $.getJSON('/games/games', function (data) {
     //For each game create a card
     $.each(data, function () {
@@ -88,12 +111,12 @@ function populateGames() {
       gameContent += '<div class="card-fab">';
       if (gamevotes) {
         if (gamevotes[gameid] > 0) {
-          gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition scale-out"><i class="material-icons">how_to_vote</i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition"><i class="material-icons">check</i></button>';
+          gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition scale-out"><i class="fas fa-vote-yea"></i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition"><i class="far fa-check-circle"></i></button>';
         } else {
-          gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="material-icons">how_to_vote</i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="material-icons">check</i></button>';
+          gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="fas fa-vote-yea"></i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="far fa-check-circle"></i></button>';
         }
       } else {
-        gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="material-icons">how_to_vote</i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="material-icons">check</i></button>';
+        gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="fas fa-vote-yea"></i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="far fa-check-circle"></i></button>';
       }
       gameContent += '</div>';
       gameContent += '<div class="card-content">';
@@ -146,6 +169,7 @@ function populateGames() {
           } else {
             $(button).addClass('scale-out');
             $(button).siblings('.btn-floating').removeClass('scale-out');
+            updateCookie();
           }
         }).fail(function () {
           iziToast.error({
@@ -179,6 +203,7 @@ function populateGames() {
           } else {
             $(button).addClass('scale-out');
             $(button).siblings('.btn-floating').removeClass('scale-out');
+            updateCookie();
           }
         }).fail(function () {
           iziToast.error({
@@ -316,3 +341,14 @@ function logOutUser() {
 
   iziToast.show(options);
 }
+
+function isLoggedIn(){
+  var userCookie = Cookies.getJSON('user');
+
+  if(userCookie){
+    return true;
+  }else{
+    return false;
+  }
+}
+

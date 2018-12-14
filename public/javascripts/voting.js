@@ -1,3 +1,9 @@
 $(document).ready(function () {
-    populateGames();
+    if(isLoggedIn()){
+        updateCookie();
+        populateGames();
+    }else{
+        populateGamesList();
+    }
 });
+
