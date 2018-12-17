@@ -7,18 +7,10 @@ block content
       div#voteText.col.s10.offset-s1.center-align.white-text
         h2.white-text Tune in!
         h6.white-text Catch us live or catch up on the games you've missed!
-    div.row
+    div.row.center-align
       // Add a placeholder for the Twitch embed
-      #twitch-embed.col.s10.offset-s2
-      // Load the Twitch embed script
-      script(src='https://embed.twitch.tv/embed/v1.js')
-      // Create a Twitch.Embed object that will render within the "twitch-embed" root element.
-      script(type='text/javascript').
-        new Twitch.Embed("twitch-embed", {
-        width: 854,
-        height: 480,
-        channel: "vigridrgaming"
-        });
+      #twitch-embed
+        iframe(src='https://player.twitch.tv/?channel=vigridrgaming&muted=true', height='360', width='640', frameborder='0', scrolling='no', allowfullscreen='true')
   include ./components/footer
   include ./components/mobileSideNav
   include ./components/scriptIncludes/prereqScripts
