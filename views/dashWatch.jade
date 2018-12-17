@@ -2,16 +2,17 @@ extends layout
 
 block content
   include ./components/nav
-  div#bodyPlayers.container-fluid
+  div#body.container-fluid
     div.row
       div#voteText.col.s10.offset-s1.center-align.white-text
         h2.white-text Tune in!
         h6.white-text Catch us live or catch up on the games you've missed!
     div.row.center-align
       // Add a placeholder for the Twitch embed
-      #twitch-embed
-        iframe(src='https://player.twitch.tv/?channel=vigridrgaming&muted=true', height='360', width='640', frameborder='0', scrolling='no', allowfullscreen='true')
+      div#twitch-embed
   include ./components/footer
   include ./components/mobileSideNav
   include ./components/scriptIncludes/prereqScripts
   include ./components/scriptIncludes/loginScripts
+  script(src="https://embed.twitch.tv/embed/v1.js")
+  script(src="/javascripts/watch.js")
