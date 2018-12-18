@@ -5,5 +5,5 @@ var embed = new Twitch.Embed("twitch-embed", {
     layout: "video-with-chat",
     autoplay: true,
     theme: "dark",
-    chat: "mobile"
+    chat: "chat"
   });
