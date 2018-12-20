@@ -9,7 +9,6 @@ if(userCookie){
         url: '/users/getuser/'+ userCookie.user,
         dataType: 'JSON'
     }).done(function(resp) {
-        console.log(resp);
         if (resp.length == 0){
             iziToast.error({
                 title: 'Unfortunately...',
@@ -18,7 +17,6 @@ if(userCookie){
             });
             return false;
         }else{
-            console.log(resp[0].username);
             userData = {
                 user: resp[0].username,
                 firstN: resp[0].firstname,
