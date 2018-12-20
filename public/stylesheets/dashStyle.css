@@ -141,11 +141,21 @@ nav {
 }
 
 #secondPanel {
+    background-image: url('/images/discordBanner.png');
+    background-position-y: 50%;
+    background-position-x: -50px;
+}
+
+#secondPanel p {
+    margin-top: 150px;
+}
+
+#thirdPanel {
     background-image: url('/images/carouselImages/artifactAmulet.jpg');
     background-position-y: 50%;
 }
 
-#thirdPanel {
+#fourthPanel {
     background-image: url('/images/carouselImages/esportscrowd.jpg');
     background-position-y: 35%;
 }
@@ -311,4 +321,12 @@ thead th {
 #voteText {
     margin-top: 10px;
     padding: 25px;
+}
+
+#profileContent {
+    height: 600px;
+}
+
+#proCard {
+    margin-top: 100px;
 }
