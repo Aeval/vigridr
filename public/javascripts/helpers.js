@@ -56,12 +56,17 @@ function logIn(user) {
     data: user,
     dataType: 'JSON'
   }).done(function (response) {
-    if (response.message !== 'Auth successful!') {
+    if (response.message == 'User Not Found!') {
       iziToast.error({
         title: 'Sorry!',
-        message: 'There was an issue logging in! Please try again!',
+        message: 'You don\'t seem to be registered, maybe do that first?'
       });
       return false;
+    } else if (response.message == 'Incorrect Password!') {
+      iziToast.error({
+        title: 'Nope!',
+        message: 'Incorrect Password!',
+      });
     } else {
       $("#modal-login").iziModal('close');
       iziToast.success({
