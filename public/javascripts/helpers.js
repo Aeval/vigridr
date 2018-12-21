@@ -64,11 +64,6 @@ function logIn(user) {
       return false;
     } else {
       $("#modal-login").iziModal('close');
-      iziToast.success({
-        title: 'Welcome!',
-        message: 'Good to see you, ' + response.user + '!',
-        position: 'bottomRight'
-      });
       Cookies.set('user', {
         token: response.token,
         user: response.user,
