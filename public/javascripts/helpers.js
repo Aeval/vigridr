@@ -56,17 +56,12 @@ function logIn(user) {
     data: user,
     dataType: 'JSON'
   }).done(function (response) {
-    if (response.message == 'User Not Found!') {
+    if (response.message !== 'Auth successful!') {
       iziToast.error({
         title: 'Sorry!',
-        message: 'You don\'t seem to be registered, maybe do that first?'
+        message: 'There was an issue logging in! Please try again!'
       });
       return false;
-    } else if (response.message == 'Incorrect Password!') {
-      iziToast.error({
-        title: 'Nope!',
-        message: 'Incorrect Password!',
-      });
     } else {
       $("#modal-login").iziModal('close');
       iziToast.success({
@@ -74,9 +69,14 @@ function logIn(user) {
         message: 'Good to see you, ' + response.user + '!',
         position: 'bottomRight'
       });
-      Cookies.set('user', { token: response.token, user: response.user, votes: response.votes, email: response.email});
+      Cookies.set('user', { token: response.token, user: response.user, votes: response.votes, email: response.email}, { expires: 1 });
       location.reload();
     }
+  }).fail(function (response) {
+      iziToast.error({
+        title: 'Sorry!',
+        message: response.message
+    });
   })
 }
 
