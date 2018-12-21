@@ -55,7 +55,8 @@ function logIn(user) {
     url: '/users/login/',
     data: user,
     dataType: 'JSON'
-  }).done(function (response) {
+  })
+  .done(function (response) {
     if (response.message !== 'Auth successful!') {
       iziToast.error({
         title: 'Sorry!',
@@ -72,12 +73,13 @@ function logIn(user) {
       Cookies.set('user', { token: response.token, user: response.user, votes: response.votes, email: response.email}, { expires: 1 });
       location.reload();
     }
-  }).fail(function (response) {
+  })
+  .fail(function(err) {
       iziToast.error({
         title: 'Sorry!',
-        message: response.message
+        message: err.message
     });
-  })
+  });
 }
 
 function updateCookie(){
