@@ -3,12 +3,12 @@ function checkUser() {
   var userCookie = Cookies.getJSON('user');
 
   if (userCookie) {
-    $('#userIn').html('<button id="userDrop" data-target="dropdown" class="dropdown-trigger white-text waves-effect waves-light right btn red">'+ userCookie.user +'</button>');
+    $('#userIn').html('<button id="userDrop" data-target="dropdown" class="dropdown-trigger white-text waves-effect waves-light right btn red">' + userCookie.user + '</button>');
     $('#dropdown').hover(function () {
       $('#userDrop').addClass('dropBtnExp');
-  }, function () {
+    }, function () {
       $('#userDrop').removeClass('dropBtnExp');
-  });
+    });
     $('#logOut').on('click', function () {
       logOutUser();
     })
@@ -20,7 +20,7 @@ function checkUser() {
       belowOrigin: true, // Displays dropdown below the button
       alignment: 'right',
       coverTrigger: false
-    } 
+    }
     var dropelems = document.querySelectorAll('.dropdown-trigger');
     var dropinstances = M.Dropdown.init(dropelems, dropOptions);
   } else {
@@ -42,7 +42,7 @@ function addUser(newUser) {
       iziToast.error({
         title: 'Oops!',
         message: 'We had an issue adding you to the roster! Try again or contact us!',
-    });
+      });
     }
   });
 };
@@ -55,8 +55,7 @@ function logIn(user) {
     url: '/users/login/',
     data: user,
     dataType: 'JSON'
-  })
-  .done(function (response) {
+  }).done(function (response) {
     if (response.message !== 'Auth successful!') {
       iziToast.error({
         title: 'Sorry!',
@@ -70,19 +69,25 @@ function logIn(user) {
         message: 'Good to see you, ' + response.user + '!',
         position: 'bottomRight'
       });
-      Cookies.set('user', { token: response.token, user: response.user, votes: response.votes, email: response.email}, { expires: 1 });
+      Cookies.set('user', {
+        token: response.token,
+        user: response.user,
+        votes: response.votes,
+        email: response.email
+      }, {
+        expires: 1
+      });
       location.reload();
     }
-  })
-  .fail(function(err) {
-      iziToast.error({
-        title: 'Sorry!',
-        message: err.responseJSON.message
+  }).fail(function (err) {
+    iziToast.error({
+      title: 'Sorry!',
+      message: err.responseJSON.message
     });
   });
 }
 
-function updateCookie(){
+function updateCookie() {
   var userCookie = Cookies.getJSON('user');
   var user = {
     username: userCookie.user
@@ -95,7 +100,13 @@ function updateCookie(){
     dataType: 'JSON'
   }).done(function (resp) {
     Cookies.remove('user');
-    Cookies.set('user', { token: resp.token, user: resp.user, votes: resp.votes }, { expires: 1 });
+    Cookies.set('user', {
+      token: resp.token,
+      user: resp.user,
+      votes: resp.votes
+    }, {
+      expires: 1
+    });
   });
 }
 
@@ -330,31 +341,30 @@ function logOutUser() {
     position: 'topCenter', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
     progressBar: false,
     buttons: [
-        ['<button>Log out</button>', function (instance, toast) {
-          instance.hide({
-            transitionOut: 'fadeOutUp',
+      ['<button>Log out</button>', function (instance, toast) {
+        instance.hide({
+          transitionOut: 'fadeOutUp',
         }, toast, 'buttonName');
-          Cookies.remove('user');
-          location.reload();
-        }], // true to focus
-        ['<button>Cancel</button>', function (instance, toast) {
-            instance.hide({
-                transitionOut: 'fadeOutUp',
-            }, toast, 'buttonName');
-        },true]
+        Cookies.remove('user');
+        location.reload();
+      }], // true to focus
+      ['<button>Cancel</button>', function (instance, toast) {
+        instance.hide({
+          transitionOut: 'fadeOutUp',
+        }, toast, 'buttonName');
+      }, true]
     ]
   }
 
   iziToast.show(options);
 }
 
-function isLoggedIn(){
+function isLoggedIn() {
   var userCookie = Cookies.getJSON('user');
 
-  if(userCookie){
+  if (userCookie) {
     return true;
-  }else{
+  } else {
     return false;
   }
 }
-
