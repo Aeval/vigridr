@@ -75,10 +75,11 @@ function logIn(user) {
     }
   })
   .fail(function(err) {
-      iziToast.error({
+    console.log(err);
+      /* iziToast.error({
         title: 'Sorry!',
         message: err.message
-    });
+    }); */
   });
 }
 
