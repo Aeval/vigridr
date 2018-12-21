@@ -69,7 +69,7 @@ function logIn(user) {
         message: 'Good to see you, ' + response.user + '!',
         position: 'bottomRight'
       });
-      Cookies.set('user', { token: response.token, user: response.user, votes: response.votes, email: response.email}, { expires: 1 });
+      Cookies.set('user', { token: response.token, user: response.user, votes: response.votes, email: response.email});
       location.reload();
     }
   })
