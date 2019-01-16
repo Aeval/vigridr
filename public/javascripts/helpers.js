@@ -237,9 +237,9 @@ function populateGamesList() {
     $.each(data, function () {
       gameContent += '<div class="card hoverable small white-text blue-grey darken-3">';
       gameContent += '<div class="card-image">';
-      gameContent += '<img src="' + this.pic + '" height="150px" width="400px" alt="' + this.game + '"></img>';
+      gameContent += '<img src="' + this.pic + '" height="175px" width="400px" alt="' + this.game + '"></img>';
       gameContent += '</div>';
-      gameContent += '<div class="card-content">';
+      gameContent += '<div class="card-content" style="padding:4px 4px;">';
       gameContent += '<p>' + this.desc + '</p>';
       gameContent += '</div>';
       gameContent += '</div>';
@@ -341,7 +341,7 @@ function logOutUser() {
           transitionOut: 'fadeOutUp',
         }, toast, 'buttonName');
         Cookies.remove('user');
-        location.reload();
+        location.href = "/";
       }], // true to focus
       ['<button>Cancel</button>', function (instance, toast) {
         instance.hide({
