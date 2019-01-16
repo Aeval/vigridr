@@ -105,7 +105,7 @@ function populateGames() {
 
       gameContent += '<div class="card hoverable small white-text blue-grey darken-3">';
       gameContent += '<div class="card-image">';
-      gameContent += '<img src="' + this.pic + '" height="150px" width="400px" alt="' + this.game + '"></img>';
+      gameContent += '<img src="' + this.pic + '" height="175px" width="400px" alt="' + this.game + '"></img>';
       gameContent += '</div>';
       gameContent += '<div class="card-fab">';
       if (gamevotes) {
@@ -118,7 +118,7 @@ function populateGames() {
         gameContent += '<button id="' + gameid + '_add" class="btn-floating halfway-fab waves-effect waves-light red scale-transition"><i class="fas fa-vote-yea"></i></button><button id="' + gameid + '_remove" class="btn-floating halfway-fab waves-effect waves-light green scale-transition scale-out"><i class="fas fa-check"></i></button>';
       }
       gameContent += '</div>';
-      gameContent += '<div class="card-content">';
+      gameContent += '<div class="card-content" style="padding:4px 4px;">';
       gameContent += '<p>' + this.desc + '</p>';
       gameContent += '</div>';
       gameContent += '</div>';
