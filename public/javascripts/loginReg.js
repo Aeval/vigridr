@@ -80,3 +80,15 @@ $('#logReg').on('click', function(e){
     e.preventDefault();
     $('#modal-login').iziModal('open');
 });
+
+//Switch to Reg
+$('#toReg').on('click', function(e){
+    e.preventDefault();
+    $('#modal-login').iziModal('next');
+})
+
+//Switch to Log In
+$('#toLog').on('click', function(e){
+    e.preventDefault();
+    $('#modal-reg').iziModal('next');
+})

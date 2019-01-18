@@ -24,7 +24,7 @@ function checkUser() {
     var dropelems = document.querySelectorAll('.dropdown-trigger');
     var dropinstances = M.Dropdown.init(dropelems, dropOptions);
   } else {
-    $('#userIn').html('<a id="logReg" class="login right"><i class="fas fa-user-circle fa-2x"></i></a>');
+    $('#userIn').html('<a id="logReg" class="login right" style="cursor: pointer">Log In / Register</a>');
   }
 }
 

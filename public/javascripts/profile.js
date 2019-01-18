@@ -66,5 +66,5 @@ if(userCookie){
     });
     
 } else {
-    $('#bodyPlayers').html('<h1 class="white-text center-align"> Not sure how you got here with out signing in! But if you want to see your profile, you\'re gonna have to do just that!</h1>');
+    $('#profileContent').html('<h1 class="white-text center-align"> Not sure how you got here with out signing in! But if you want to see your profile, you\'re gonna have to do just that!</h1>');
 }
