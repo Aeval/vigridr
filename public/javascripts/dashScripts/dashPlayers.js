@@ -25,8 +25,9 @@ function getUsers() {
     }).done(function (resp) {
         console.log(resp);
         $.each(resp, function () {
+            var gravHash = md5(this.email);
             playerList += '<tr>';
-            playerList += '<td style="padding-left: 12px;"><i class="fas fa-smile-beam fa-2x"></i></td>';
+            playerList += '<td style="padding-left: 12px;"><img class="circle responsive-img" src="https://www.gravatar.com/avatar/' + gravHash + '?d=retro"></td>';
             playerList += '<td class="name">'+ this.username +'</td>';
             playerList += '<td class="company">'+ this.company +'</td>';
             playerList += '<td>'+ this.steam +'</td>';
