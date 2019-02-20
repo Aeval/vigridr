@@ -2,11 +2,44 @@ extends layout
 
 block content
   include ./components/nav
-  div#bodyPlayers.container-fluid.valign-wrapper
+  div#body.container-fluid
     div.row
       div#voteText.col.s10.offset-s1.center-align.white-text
-        h2.white-text Stay Tuned!
-        h4.white-text The Teams tab will be coming soon!
+        h4.white-text SEASON 1 GAMES ARE ANNOUNCED!
+        h6.white-text Please click on the cards below to be directed to the sign-up page.
+        h6.white-text (Don't worry about Donations yet, just get in there.)
+    .row
+      .col.s5.offset-s1
+        .card
+          .card-image
+            a(href="https://challonge.com/tournaments/signup/33qvPTLmfU")
+              img(src='/images/1080/ow.jpg' style='max-width:100%;')
+              span.card-title Overwatch | Season 1     
+      .col.s5
+        .card
+          .card-image
+            a(href="https://challonge.com/tournaments/signup/pdfLsfU5oY")
+              img(src='/images/1080/dota.jpg' style='max-width:100%;')
+              span.card-title Dota 2 | Season 1
+    .row
+      .col.s4
+        .card
+          .card-image
+            a(href="https://challonge.com/tournaments/signup/TGSJi4K04Q")
+              img(src='/images/1080/apex.jpg' style='max-width:100%;')
+              span.card-title Apex Legends | Season 1
+      .col.s4
+        .card
+          .card-image
+            a(href="https://challonge.com/tournaments/signup/yZJiDn06uh")
+              img(src='/images/1080/sc2.jpg' style='max-width:100%;')
+              span.card-title Starcraft 2 | Season 1
+      .col.s4
+        .card
+          .card-image
+            a(href="https://challonge.com/tournaments/signup/z6uIQqV1Ob")
+              img(src='/images/1080/hs.png' style='max-width:100%;')
+              span.card-title Hearthstone | Season 1
   include ./components/footer
   include ./components/mobileSideNav
   include ./components/scriptIncludes/prereqScripts
