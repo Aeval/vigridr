@@ -32,7 +32,6 @@ function getUsers() {
             playerList += '<td class="company">'+ this.company +'</td>';
             playerList += '<td>'+ this.steam +'</td>';
             playerList += '<td>'+ this.bnet + '</td>';
-            playerList += '<td style="padding-left: 12px;"><i class="fas fa-id-card"></i></td>';
             playerList += '</tr>';
         })
 
