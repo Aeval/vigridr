@@ -5,9 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 //Database
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('mongodb+srv://fisher:Basch1!!@cluster-9hntkkzz.9rbcl.mongodb.net/heroku_9hntkkzz?retryWrites=true&w=majority');
+const MongoClient = require('mongodb').MongoClient;
+const uri = 'mongodb+srv://heroku_9hntkkzz:Basch1!!@cluster-9hntkkzz.9rbcl.mongodb.net/heroku_9hntkkzz?retryWrites=true&w=majority';
+const db = new MongoClient(uri, { useNewUrlParser: true });
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
