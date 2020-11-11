@@ -7,7 +7,7 @@ var logger = require('morgan');
 //Database
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('mongodb://fisher:Basch1!!@ds159563.mlab.com:59563/heroku_9hntkkzz');
+var db = monk('mongodb+srv://fisher:Basch1!!@cluster-9hntkkzz.9rbcl.mongodb.net/heroku_9hntkkzz?retryWrites=true&w=majority');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -21,17 +21,19 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({
-  extended: false
-}));
+app.use(
+	express.urlencoded({
+		extended: false,
+	})
+);
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Make db accessible to routers
 app.use(function (req, res, next) {
-  req.db = db;
-  next();
-})
+	req.db = db;
+	next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -39,18 +41,18 @@ app.use('/games', gamesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+	next(createError(404));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+	// set locals, only providing error in development
+	res.locals.message = err.message;
+	res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+	// render the error page
+	res.status(err.status || 500);
+	res.render('error');
 });
 
 module.exports = app;
